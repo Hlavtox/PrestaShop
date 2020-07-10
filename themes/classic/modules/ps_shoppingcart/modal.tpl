@@ -80,6 +80,7 @@
           </div>
         </div>
       </div>
+      {hook h='displayCartModalFooter' product=$product}
     </div>
   </div>
 </div>
