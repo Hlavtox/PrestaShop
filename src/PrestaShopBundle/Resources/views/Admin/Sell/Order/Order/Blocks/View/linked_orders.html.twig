@@ -32,44 +32,46 @@
   </div>
 
   <div class="card-body">
-    <table class="table mb-3">
-      <thead>
-      <tr>
-        <th>
-          {{ 'Order ID'|trans({}, 'Admin.Orderscustomers.Feature') }}
-        </th>
-        <th>
-          {{ 'Status'|trans({}, 'Admin.Global') }}
-        </th>
-        <th>
-          {{ 'Amount'|trans({}, 'Admin.Global') }}
-        </th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      {% if orderForViewing.linkedOrders.linkedOrders is not empty %}
-      {% for linkedOrder in orderForViewing.linkedOrders.linkedOrders %}
-      <tr>
-        <td>
-          <a class="_blank" href="{{ path('admin_orders_view', {'orderId': linkedOrder.orderId}) }}">
-            {{ linkedOrder.orderId }}
-          </a>
-        </td>
-        <td>
-          {{ linkedOrder.statusName }}
-        </td>
-        <td>
-          {{ linkedOrder.amount }}
-        </td>
-        <td>
-          <a class="_blank" href="{{ path('admin_orders_view', {'orderId': linkedOrder.orderId}) }}">
-            <i class="material-icons">remove_red_eye</i>
-            {{ 'View order'|trans({}, 'Admin.Orderscustomers.Feature') }}
-          </a>
-        </td>
-        {% endfor %}
-        {% endif %}
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table mb-3">
+        <thead>
+        <tr>
+          <th>
+            {{ 'Order ID'|trans({}, 'Admin.Orderscustomers.Feature') }}
+          </th>
+          <th>
+            {{ 'Status'|trans({}, 'Admin.Global') }}
+          </th>
+          <th>
+            {{ 'Amount'|trans({}, 'Admin.Global') }}
+          </th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if orderForViewing.linkedOrders.linkedOrders is not empty %}
+        {% for linkedOrder in orderForViewing.linkedOrders.linkedOrders %}
+        <tr>
+          <td>
+            <a class="_blank" href="{{ path('admin_orders_view', {'orderId': linkedOrder.orderId}) }}">
+              {{ linkedOrder.orderId }}
+            </a>
+          </td>
+          <td>
+            {{ linkedOrder.statusName }}
+          </td>
+          <td>
+            {{ linkedOrder.amount }}
+          </td>
+          <td>
+            <a class="_blank" href="{{ path('admin_orders_view', {'orderId': linkedOrder.orderId}) }}">
+              <i class="material-icons">remove_red_eye</i>
+              {{ 'View order'|trans({}, 'Admin.Orderscustomers.Feature') }}
+            </a>
+          </td>
+          {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
   </div>
