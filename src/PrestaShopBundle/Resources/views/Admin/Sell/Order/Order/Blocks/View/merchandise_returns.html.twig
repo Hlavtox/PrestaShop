@@ -25,32 +25,34 @@
 
 {% if not orderForViewing.virtual %}
   {% if orderForViewing.returns.orderReturns is not empty %}
-    <table class="table">
-      <thead>
-      <tr>
-        <th>{{ 'Date'|trans({}, 'Admin.Global') }}</th>
-        <th>{{ 'Type'|trans({}, 'Admin.Global') }}</th>
-        <th>{{ 'Carrier'|trans({}, 'Admin.Shipping.Feature') }}</th>
-        <th>{{ 'Tracking number'|trans({}, 'Admin.Shipping.Feature') }}</th>
-      </tr>
-      </thead>
-      <tbody>
-      {% for return in orderForViewing.returns.orderReturns %}
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
         <tr>
-          <td>{{ return.date|date_format_full }}</td>
-          <td>{{ return.type }}</td>
-          <td>{{ return.stateName }}</td>
-          <td class="text-right">
-            {% if return.trackingNumber and return.trackingUrl %}
-              <a href="{{ return.trackingUrl }}">{{ return.trackingNumber }}</a>
-            {% elseif return.trackingNumber %}
-              {{ return.trackingNumber }}
-            {% endif %}
-          </td>
+          <th>{{ 'Date'|trans({}, 'Admin.Global') }}</th>
+          <th>{{ 'Type'|trans({}, 'Admin.Global') }}</th>
+          <th>{{ 'Carrier'|trans({}, 'Admin.Shipping.Feature') }}</th>
+          <th>{{ 'Tracking number'|trans({}, 'Admin.Shipping.Feature') }}</th>
         </tr>
-      {% endfor %}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+        {% for return in orderForViewing.returns.orderReturns %}
+          <tr>
+            <td>{{ return.date|date_format_full }}</td>
+            <td>{{ return.type }}</td>
+            <td>{{ return.stateName }}</td>
+            <td class="text-right">
+              {% if return.trackingNumber and return.trackingUrl %}
+                <a href="{{ return.trackingUrl }}">{{ return.trackingNumber }}</a>
+              {% elseif return.trackingNumber %}
+                {{ return.trackingNumber }}
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
   {% else %}
     <p class="text-center mb-0">{{ 'No merchandise returned yet'|trans({}, 'Admin.Orderscustomers.Notification') }}</p>
   {% endif %}
