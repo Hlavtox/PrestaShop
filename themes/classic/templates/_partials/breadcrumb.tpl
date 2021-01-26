@@ -27,7 +27,7 @@
     {block name='breadcrumb'}
       {foreach from=$breadcrumb.links item=path name=breadcrumb}
         {block name='breadcrumb_item'}
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             {if not $smarty.foreach.breadcrumb.last}
                 <a itemprop="item" href="{$path.url}"><span itemprop="name">{$path.title}</span></a>
             {else}
