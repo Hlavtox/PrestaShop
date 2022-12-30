@@ -46,3 +46,6 @@ trans('Enable or disable the migrated attribute groups page.', 'Admin.Advparamet
 // Authorization server feature flag
 trans('Authorization server', 'Admin.Advparameters.Feature');
 trans('Enable or disable the authorization server page.', 'Admin.Advparameters.Help');
+
+// Multiple image formats feature flags
+trans('Enable / Disable having more than one image format (jpg, webp, avif, png...)', 'Admin.Advparameters.Feature');
