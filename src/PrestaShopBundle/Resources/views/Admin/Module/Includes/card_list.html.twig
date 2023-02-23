@@ -41,6 +41,7 @@
   data-active="{{ isModuleActive }}"
   data-installed="{{ module.database.installed|default('0') }}"
   data-last-access="{{ module.database.last_access_date }}"
+  data-ondisk="{{ module.disk.is_present|intCast }}"
 >
   <div class="container-fluid">
     <div class="module-item-wrapper-list row">
@@ -78,6 +79,9 @@
           <div>
             {% if module.attributes.urls.upgrade is defined %}
                 <span class="badge badge-success my-1">{{ 'Upgrade available'|trans({}, 'Admin.Modules.Feature') }}</span>
+            {% endif %}
+            {% if module.disk.is_present|intCast == 0 %}
+                <span class="badge badge-info my-1">{{ 'Online download'|trans({}, 'Admin.Modules.Feature') }}</span>
             {% endif %}
           </div>
         </div>
