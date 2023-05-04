@@ -634,9 +634,10 @@ class ImageCore extends ObjectModel
             return false;
         }
 
+        // Prepare a list of images to be deleted
         $filesToDelete = [];
 
-        // Delete auto-generated images
+        // Delete thumbnails
         $image_types = ImageType::getImagesTypes();
         $sfContainer = SymfonyContainer::getInstance();
         $isMultipleImageFormatFeatureEnabled = $sfContainer->get('prestashop.core.admin.feature_flag.repository')->isEnabled(FeatureFlagSettings::FEATURE_FLAG_MULTIPLE_IMAGE_FORMAT);
@@ -654,10 +655,13 @@ class ImageCore extends ObjectModel
         // Delete watermark image
         $filesToDelete[] = $this->image_dir . $this->getExistingImgPath() . '-watermark.' . $this->image_format;
         $filesToDelete[] = $this->image_dir . $this->getExistingImgPath() . '-watermark2x.' . $this->image_format;
-        // delete index.php
+
+        // Delete index.php
         $filesToDelete[] = $this->image_dir . $this->getImgFolder() . 'index.php';
-        // delete fileType
+
+        // Delete fileType
         $filesToDelete[] = $this->image_dir . $this->getImgFolder() . 'fileType';
+
         // Delete tmp images
         $filesToDelete[] = _PS_TMP_IMG_DIR_ . 'product_' . $this->id_product . '.' . $this->image_format;
         $filesToDelete[] = _PS_TMP_IMG_DIR_ . 'product_mini_' . $this->id_product . '.' . $this->image_format;

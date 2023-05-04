@@ -2881,14 +2881,13 @@ class AdminProductsControllerCore extends AdminController
                     // Should we generate high DPI images?
                     $generate_hight_dpi_images = (bool) Configuration::get('PS_HIGHT_DPI');
 
-                    $sfContainer = SymfonyContainer::getInstance();
-
                     /*
                     * Let's resolve which formats we will use for image generation.
                     * In new image system, it's multiple formats. In case of legacy, it's only .jpg.
                     *
                     * In case of .jpg images, the actual format inside is decided by ImageManager.
                     */
+                    $sfContainer = SymfonyContainer::getInstance();
                     if ($sfContainer->get('prestashop.core.admin.feature_flag.repository')->isEnabled(FeatureFlagSettings::FEATURE_FLAG_MULTIPLE_IMAGE_FORMAT)) {
                         $configuredImageFormats = $sfContainer->get(ImageFormatConfiguration::class)->getGenerationFormats();
                     } else {

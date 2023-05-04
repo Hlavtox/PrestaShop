@@ -91,7 +91,6 @@ final class ImageCopier
     {
         $tmpDir = $this->configuration->get('_PS_TMP_IMG_DIR_');
         $tmpFile = tempnam($tmpDir, 'ps_import');
-        $watermarkTypes = explode(',', $this->configuration->get('WATERMARK_TYPES'));
 
         switch ($entity) {
             default:

@@ -304,8 +304,10 @@ class ImageManagerCore
 
         $destImage = imagecreatetruecolor($destinationWidth, $destinationHeight);
 
-        // If the output is PNG, fill with transparency. Else fill with white background.
-        if ($destinationFileType == 'png' || $destinationFileType == 'webp' || $destinationFileType == 'avif') {
+        // If the output format suppots transparency and the original file supports transparency, fill with transparency.
+        // Else fill with white background.
+        if (($destinationFileType == 'png' || $destinationFileType == 'webp' || $destinationFileType == 'avif') &&
+            ($sourceFileType == IMAGETYPE_GIF || $sourceFileType == IMAGETYPE_PNG || $sourceFileType == IMAGETYPE_WEBP)) {
             imagealphablending($destImage, false);
             imagesavealpha($destImage, true);
             $transparent = imagecolorallocatealpha($destImage, 255, 255, 255, 127);
@@ -775,7 +777,6 @@ class ImageManagerCore
     public static function copyImg($id_entity, $id_image = null, $url = '', $entity = 'products', $regenerate = true)
     {
         $tmpfile = tempnam(_PS_TMP_IMG_DIR_, 'ps_import');
-        $watermark_types = explode(',', Configuration::get('WATERMARK_TYPES'));
 
         switch ($entity) {
             default:
