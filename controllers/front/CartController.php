@@ -61,7 +61,7 @@ class CartControllerCore extends FrontController
     }
 
     /**
-     * Initialize cart controller.
+     * Initialize cart controller. Called after processing all requests and potentially filling $errors with some data.
      *
      * @see FrontController::init()
      */
@@ -72,7 +72,7 @@ class CartControllerCore extends FrontController
         // Send noindex to avoid ghost carts by bots
         header('X-Robots-Tag: noindex, nofollow', true);
 
-        // Get page main parameters
+        // Get page main parameters, some won't be needed as they are submitted only when adding a product to cart
         $this->id_product = (int) Tools::getValue('id_product', null);
         $this->id_product_attribute = (int) Tools::getValue('id_product_attribute', Tools::getValue('ipa'));
         $this->customization_id = (int) Tools::getValue('id_customization');
@@ -228,62 +228,108 @@ class CartControllerCore extends FrontController
         ]));
     }
 
+    /**
+     * Method that is executed after init() and is responsible for handling all the POST requests.
+     * Cart modifications from the cart page, adding to cart from the catalog and manual links.
+     */
     public function postProcess()
     {
         $this->updateCart();
     }
 
+    /**
+     * Handles all cart modifications from the cart page, adding to cart from the catalog and manual links.
+     */
     protected function updateCart()
     {
         // Update the cart ONLY if it's not a bot, in order to avoid ghost carts
-        if (!Connection::isBot()
-            && !$this->errors
-            && !($this->context->customer->isLogged() && !$this->isTokenValid())
-        ) {
-            if (Tools::getIsset('add') || Tools::getIsset('update')) {
-                $this->processChangeProductInCart();
-            } elseif (Tools::getIsset('delete')) {
-                $this->processDeleteProductInCart();
-            } elseif (CartRule::isFeatureActive()) {
-                if (Tools::getIsset('addDiscount')) {
-                    if (!($code = trim(Tools::getValue('discount_name')))) {
-                        $this->errors[] = $this->trans(
-                            'You must enter a voucher code.',
-                            [],
-                            'Shop.Notifications.Error'
-                        );
-                    } elseif (!Validate::isCleanHtml($code)) {
-                        $this->errors[] = $this->trans(
-                            'The voucher code is invalid.',
-                            [],
-                            'Shop.Notifications.Error'
-                        );
-                    } else {
-                        $cartRule = new CartRule(CartRule::getIdByCode($code));
-                        if (Validate::isLoadedObject($cartRule)) {
-                            if ($error = $cartRule->checkValidity($this->context)) {
-                                $this->errors[] = $error;
-                            } else {
-                                $this->context->cart->addCartRule($cartRule->id);
-                            }
-                        } else {
-                            $this->errors[] = $this->trans(
-                                'This voucher does not exist.',
-                                [],
-                                'Shop.Notifications.Error'
-                            );
-                        }
-                    }
-                } elseif (($id_cart_rule = (int) Tools::getValue('deleteDiscount'))
-                    && Validate::isUnsignedId($id_cart_rule)
-                ) {
-                    $this->context->cart->removeCartRule($id_cart_rule);
-                    CartRule::autoAddToCart($this->context);
-                }
-            }
-        } elseif (!$this->isTokenValid() && Tools::getValue('action') !== 'show' && !Tools::getValue('ajax')) {
-            Tools::redirect('index.php');
+        if (Connection::isBot()) {
+            return;
         }
+
+        // If we received malformed request, nothing to do
+        if (!empty($this->context->customer->id) && !$this->isTokenValid() && Tools::getValue('action') !== 'show' && !Tools::getValue('ajax')) {
+            return;
+        }
+
+        // Process the action requested
+        if (Tools::getIsset('add') || Tools::getIsset('update')) {
+            $this->processChangeProductInCart();
+        } elseif (Tools::getIsset('delete')) {
+            $this->processDeleteProductInCart();
+        } elseif (Tools::getIsset('addDiscount')) {
+            $this->processAddCartRule();
+        } elseif (Tools::getIsset('deleteDiscount')) {
+            $this->processDeleteCartRule();
+        }
+    }
+
+    /**
+     * This process handles adding a new cart rule.
+     */
+    protected function processAddCartRule() {
+        if (!CartRule::isFeatureActive()) {
+            return;
+        }
+
+        // Get voucher code
+        $code = trim(Tools::getValue('discount_name'));
+
+        // Check if something was entered
+        if (empty($code)) {
+            $this->errors[] = $this->trans(
+                'You must enter a voucher code.',
+                [],
+                'Shop.Notifications.Error'
+            );
+            return;
+        }
+
+        // Check the input for potentially valid code
+        if (!Validate::isCleanHtml($code)) {
+            $this->errors[] = $this->trans(
+                'The voucher code is invalid.',
+                [],
+                'Shop.Notifications.Error'
+            );
+            return;
+        }
+
+        // Load up the cart rule and validate the object
+        $cartRule = new CartRule(CartRule::getIdByCode($code));
+        if (!Validate::isLoadedObject($cartRule)) {
+            $this->errors[] = $this->trans(
+                'This voucher does not exist.',
+                [],
+                'Shop.Notifications.Error'
+            );
+            return;
+        }
+
+        // Check it's validity and add it
+        if ($error = $cartRule->checkValidity($this->context)) {
+            $this->errors[] = $error;
+        } else {
+            $this->context->cart->addCartRule($cartRule->id);
+        }
+    }
+
+    /**
+     * This process handles adding a new cart rule.
+     */
+    protected function processDeleteCartRule() {
+        if (!CartRule::isFeatureActive()) {
+            return;
+        }
+
+        // Get cart rule ID and validate it
+        $id_cart_rule = (int) Tools::getValue('deleteDiscount');
+        if (!Validate::isUnsignedId($id_cart_rule)) {
+            return;
+        }
+
+        $this->context->cart->removeCartRule($id_cart_rule);
+        CartRule::autoAddToCart($this->context);
     }
 
     /**
