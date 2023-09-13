@@ -61,7 +61,7 @@ class CartControllerCore extends FrontController
     }
 
     /**
-     * Initialize cart controller. Called after processing all requests and potentially filling $errors with some data.
+     * Initialize cart controller. Called before processing all requests and potentially filling $errors with some data.
      *
      * @see FrontController::init()
      */
@@ -248,7 +248,7 @@ class CartControllerCore extends FrontController
         }
 
         // If we received malformed request, nothing to do
-        if (!empty($this->context->customer->id) && !$this->isTokenValid() && Tools::getValue('action') !== 'show' && !Tools::getValue('ajax')) {
+        if (!$this->isTokenValid() && Tools::getValue('action') !== 'show' && !Tools::getValue('ajax')) {
             return;
         }
 
