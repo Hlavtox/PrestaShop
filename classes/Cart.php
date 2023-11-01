@@ -3473,7 +3473,6 @@ class CartCore extends ObjectModel
         $configuration = Configuration::getMultiple([
             'PS_SHIPPING_FREE_PRICE',
             'PS_SHIPPING_HANDLING',
-            'PS_SHIPPING_METHOD',
             'PS_SHIPPING_FREE_WEIGHT',
         ]);
 

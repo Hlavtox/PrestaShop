@@ -68,9 +68,6 @@
   <configuration id="PS_SHIPPING_FREE_WEIGHT" name="PS_SHIPPING_FREE_WEIGHT">
     <value>0</value>
   </configuration>
-  <configuration id="PS_SHIPPING_METHOD" name="PS_SHIPPING_METHOD">
-    <value>1</value>
-  </configuration>
   <configuration id="PS_TAX" name="PS_TAX">
     <value>1</value>
   </configuration>

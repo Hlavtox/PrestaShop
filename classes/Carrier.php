@@ -36,7 +36,6 @@ class CarrierCore extends ObjectModel
     public const PS_CARRIERS_AND_CARRIER_MODULES_NEED_RANGE = 4;
     public const ALL_CARRIERS = 5;
 
-    public const SHIPPING_METHOD_DEFAULT = 0;
     public const SHIPPING_METHOD_WEIGHT = 1;
     public const SHIPPING_METHOD_PRICE = 2;
     public const SHIPPING_METHOD_FREE = 3;
@@ -185,12 +184,6 @@ class CarrierCore extends ObjectModel
     {
         parent::__construct($id, $id_lang);
         $this->image_dir = _PS_SHIP_IMG_DIR_;
-        /*
-         * keep retrocompatibility SHIPPING_METHOD_DEFAULT
-         */
-        if ($this->shipping_method == Carrier::SHIPPING_METHOD_DEFAULT) {
-            $this->shipping_method = ((int) Configuration::get('PS_SHIPPING_METHOD') ? Carrier::SHIPPING_METHOD_WEIGHT : Carrier::SHIPPING_METHOD_PRICE);
-        }
     }
 
     public static function resetStaticCache()
@@ -1116,18 +1109,7 @@ class CarrierCore extends ObjectModel
             return Carrier::SHIPPING_METHOD_FREE;
         }
 
-        $method = (int) $this->shipping_method;
-
-        if ($this->shipping_method == Carrier::SHIPPING_METHOD_DEFAULT) {
-            // backward compatibility
-            if ((int) Configuration::get('PS_SHIPPING_METHOD')) {
-                $method = Carrier::SHIPPING_METHOD_WEIGHT;
-            } else {
-                $method = Carrier::SHIPPING_METHOD_PRICE;
-            }
-        }
-
-        return $method;
+        return (int) $this->shipping_method;
     }
 
     /**
