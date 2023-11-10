@@ -864,7 +864,7 @@ class ValidateCore
      *
      * @return bool Validity is ok or not
      */
-    public static function isPercentage($value)
+    public static function isPercentage(float $value)
     {
         return Validate::isFloat($value) && $value >= 0 && $value <= 100;
     }
