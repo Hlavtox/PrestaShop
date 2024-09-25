@@ -52,26 +52,20 @@ class GeneralType extends TranslatorAwareType
     private $tosCmsChoices;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var CurrencyDataProviderInterface
      */
     private $currencyDataProvider;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         CurrencyDataProviderInterface $currencyDataProvider,
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         array $tosCmsChoices
     ) {
         parent::__construct($translator, $locales);
 
         $this->tosCmsChoices = $tosCmsChoices;
-        $this->configuration = $configuration;
         $this->currencyDataProvider = $currencyDataProvider;
     }
 

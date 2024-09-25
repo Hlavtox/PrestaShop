@@ -54,7 +54,7 @@ class AddProductRowType extends TranslatorAwareType
     private $contextLangId;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         ConfigurableFormChoiceProviderInterface $orderInvoiceByIdChoiceProvider,
         int $contextLangId

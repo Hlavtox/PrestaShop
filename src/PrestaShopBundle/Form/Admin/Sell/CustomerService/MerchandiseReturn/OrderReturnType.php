@@ -48,12 +48,11 @@ class OrderReturnType extends TranslatorAwareType
     /**
      * OrderReturnType constructor.
      *
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $stateChoices
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $stateChoices
     ) {

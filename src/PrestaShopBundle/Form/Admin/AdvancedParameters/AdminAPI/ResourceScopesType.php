@@ -47,7 +47,7 @@ class ResourceScopesType extends TranslatorAwareType implements DataMapperInterf
     private const CORE_FILE_NAME = '__core_scopes';
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         private readonly ApiResourceScopesExtractorInterface $resourceScopeExtractor,
         private readonly ModuleRepository $moduleRepository

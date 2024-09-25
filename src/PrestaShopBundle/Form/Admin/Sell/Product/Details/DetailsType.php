@@ -50,13 +50,12 @@ class DetailsType extends TranslatorAwareType
     private $productConditionChoiceProvider;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param FormChoiceProviderInterface $productConditionChoiceProvider
      * @param bool $isFeatureEnabled
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         FormChoiceProviderInterface $productConditionChoiceProvider,
         bool $isFeatureEnabled

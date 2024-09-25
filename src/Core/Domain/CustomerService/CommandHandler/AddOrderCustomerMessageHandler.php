@@ -65,24 +65,18 @@ class AddOrderCustomerMessageHandler implements AddOrderCustomerMessageHandlerIn
     private $contextEmployeeId;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var ValidatorInterface
      */
     private $validator;
 
     /**
-     * @param TranslatorInterface $translator
      * @param ValidatorInterface $validator
      * @param int $contextShopId
      * @param int $contextLanguageId
      * @param int $contextEmployeeId
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         ValidatorInterface $validator,
         int $contextShopId,
         int $contextLanguageId,
@@ -91,7 +85,6 @@ class AddOrderCustomerMessageHandler implements AddOrderCustomerMessageHandlerIn
         $this->contextShopId = $contextShopId;
         $this->contextLanguageId = $contextLanguageId;
         $this->contextEmployeeId = $contextEmployeeId;
-        $this->translator = $translator;
         $this->validator = $validator;
     }
 

@@ -39,24 +39,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class FileUploader
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var ImportDirectory
      */
     private $importDirectory;
 
     /**
-     * @param TranslatorInterface $translator
      * @param ImportDirectory $importDirectory
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         ImportDirectory $importDirectory
     ) {
-        $this->translator = $translator;
         $this->importDirectory = $importDirectory;
     }
 

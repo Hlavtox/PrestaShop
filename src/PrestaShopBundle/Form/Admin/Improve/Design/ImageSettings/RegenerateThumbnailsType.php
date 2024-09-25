@@ -39,7 +39,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class RegenerateThumbnailsType extends TranslatorAwareType
 {
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         private readonly ImageTypeChoiceProvider $imageTypeChoiceProvider
     ) {

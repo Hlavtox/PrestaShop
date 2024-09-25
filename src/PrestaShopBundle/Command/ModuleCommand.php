@@ -52,11 +52,6 @@ class ModuleCommand extends Command
     ];
 
     /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
-    /**
      * @var InputInterface
      */
     protected $input;
@@ -82,13 +77,12 @@ class ModuleCommand extends Command
     private $moduleManager;
 
     public function __construct(
-        TranslatorInterface $translator,
+        protected TranslatorInterface $translator,
         LegacyContext $context,
         ModuleSelfConfigurator $moduleSelfConfigurator,
         ModuleManager $moduleManager
     ) {
         parent::__construct();
-        $this->translator = $translator;
         $this->context = $context;
         $this->moduleSelfConfigurator = $moduleSelfConfigurator;
         $this->moduleManager = $moduleManager;

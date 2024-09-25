@@ -48,23 +48,16 @@ final class ShopUrlDataConfiguration implements DataConfigurationInterface
     private $htaccessFileGenerator;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * ShopUrlDataConfiguration constructor.
      *
      * @param ShopUrl $mainShopUrl
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(
         ShopUrl $mainShopUrl,
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         HtaccessFileGenerator $htaccessFileGenerator
     ) {
         $this->mainShopUrl = $mainShopUrl;
-        $this->configuration = $configuration;
         $this->htaccessFileGenerator = $htaccessFileGenerator;
     }
 

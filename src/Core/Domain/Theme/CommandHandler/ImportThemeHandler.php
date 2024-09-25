@@ -53,23 +53,16 @@ final class ImportThemeHandler implements ImportThemeHandlerInterface
     private $themeManager;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @param ThemeUploaderInterface $themeUploader
      * @param ThemeManager $themeManager
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(
         ThemeUploaderInterface $themeUploader,
         ThemeManager $themeManager,
-        ConfigurationInterface $configuration
+        private ConfigurationInterface $configuration
     ) {
         $this->themeUploader = $themeUploader;
         $this->themeManager = $themeManager;
-        $this->configuration = $configuration;
     }
 
     /**

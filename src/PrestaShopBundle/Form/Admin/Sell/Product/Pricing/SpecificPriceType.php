@@ -80,7 +80,7 @@ class SpecificPriceType extends TranslatorAwareType
     private $languageId;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         ProductRepository $productRepository,
         AttributeRepository $attributeRepository,

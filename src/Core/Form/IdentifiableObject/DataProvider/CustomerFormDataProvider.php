@@ -38,16 +38,6 @@ use PrestaShop\PrestaShop\Core\Group\Provider\DefaultGroupsProviderInterface;
 final class CustomerFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var DefaultGroupsProviderInterface
      */
     private $defaultGroupsProvider;
@@ -58,19 +48,15 @@ final class CustomerFormDataProvider implements FormDataProviderInterface
     private $isB2bFeatureEnabled;
 
     /**
-     * @param CommandBusInterface $queryBus
-     * @param ConfigurationInterface $configuration
      * @param DefaultGroupsProviderInterface $defaultGroupsProvider
      * @param bool $isB2bFeatureEnabled
      */
     public function __construct(
-        CommandBusInterface $queryBus,
-        ConfigurationInterface $configuration,
+        private CommandBusInterface $queryBus,
+        private ConfigurationInterface $configuration,
         DefaultGroupsProviderInterface $defaultGroupsProvider,
         $isB2bFeatureEnabled
     ) {
-        $this->queryBus = $queryBus;
-        $this->configuration = $configuration;
         $this->defaultGroupsProvider = $defaultGroupsProvider;
         $this->isB2bFeatureEnabled = $isB2bFeatureEnabled;
     }

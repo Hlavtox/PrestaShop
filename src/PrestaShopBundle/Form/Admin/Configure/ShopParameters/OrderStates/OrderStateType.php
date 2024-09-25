@@ -65,7 +65,6 @@ class OrderStateType extends TranslatorAwareType
     private $templateAttributes;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param ThemeCatalogInterface $themeCatalog
      * @param UrlGeneratorInterface $routing
@@ -74,7 +73,7 @@ class OrderStateType extends TranslatorAwareType
      * @throws InvalidArgumentException
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         ThemeCatalogInterface $themeCatalog,
         UrlGeneratorInterface $routing,

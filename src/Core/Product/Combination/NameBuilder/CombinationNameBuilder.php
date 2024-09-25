@@ -36,11 +36,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class CombinationNameBuilder implements CombinationNameBuilderInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
-    /**
      * @var string
      */
     protected $attributesSeparator;
@@ -51,11 +46,10 @@ class CombinationNameBuilder implements CombinationNameBuilderInterface
     private $attributesInsideSeparator;
 
     public function __construct(
-        TranslatorInterface $translator,
+        protected TranslatorInterface $translator,
         string $attributesSeparator,
         string $attributesInsideSeparator
     ) {
-        $this->translator = $translator;
         $this->attributesSeparator = $attributesSeparator;
         $this->attributesInsideSeparator = $attributesInsideSeparator;
     }

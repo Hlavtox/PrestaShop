@@ -39,11 +39,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class GeneralConfiguration implements DataConfigurationInterface
 {
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var SpecificPricePriorityUpdater
      */
     private $specificPricePriorityUpdater;
@@ -53,10 +48,9 @@ class GeneralConfiguration implements DataConfigurationInterface
      * @param SpecificPricePriorityUpdater $specificPricePriorityUpdater
      */
     public function __construct(
-        Configuration $configuration,
+        private Configuration $configuration,
         SpecificPricePriorityUpdater $specificPricePriorityUpdater
     ) {
-        $this->configuration = $configuration;
         $this->specificPricePriorityUpdater = $specificPricePriorityUpdater;
     }
 

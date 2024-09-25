@@ -39,14 +39,8 @@ use PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\ValueObject\TaxRulesGroupId;
  */
 class TaxRulesGroupFormDataHandler implements FormDataHandlerInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    protected $commandBus;
-
-    public function __construct(CommandBusInterface $commandBus)
+    public function __construct(protected CommandBusInterface $commandBus)
     {
-        $this->commandBus = $commandBus;
     }
 
     /**

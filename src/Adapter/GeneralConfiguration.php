@@ -36,11 +36,6 @@ use PrestaShop\PrestaShop\Core\Http\CookieOptions;
 class GeneralConfiguration implements DataConfigurationInterface
 {
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var Cookie
      */
     private $cookie;
@@ -49,9 +44,8 @@ class GeneralConfiguration implements DataConfigurationInterface
      * @param Configuration $configuration
      * @param Cookie $cookie
      */
-    public function __construct(Configuration $configuration, Cookie $cookie)
+    public function __construct(private Configuration $configuration, Cookie $cookie)
     {
-        $this->configuration = $configuration;
         $this->cookie = $cookie;
     }
 

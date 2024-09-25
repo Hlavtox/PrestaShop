@@ -49,11 +49,6 @@ final class FormHandler implements FormHandlerInterface
     private $hookDispatcher;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var bool
      */
     private $isDemoModeEnabled;
@@ -61,18 +56,16 @@ final class FormHandler implements FormHandlerInterface
     /**
      * @param FormDataHandlerInterface $dataHandler
      * @param HookDispatcherInterface $hookDispatcher
-     * @param TranslatorInterface $translator
      * @param bool $isDemoModeEnabled
      */
     public function __construct(
         FormDataHandlerInterface $dataHandler,
         HookDispatcherInterface $hookDispatcher,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         $isDemoModeEnabled
     ) {
         $this->dataHandler = $dataHandler;
         $this->hookDispatcher = $hookDispatcher;
-        $this->translator = $translator;
         $this->isDemoModeEnabled = $isDemoModeEnabled;
     }
 

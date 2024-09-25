@@ -34,17 +34,10 @@ use PrestaShop\PrestaShop\Core\Domain\Product\Shop\Command\SetProductShopsComman
 class ProductShopsFormDataHandler implements FormDataHandlerInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $bus;
-
-    /**
-     * @param CommandBusInterface $bus
      */
     public function __construct(
-        CommandBusInterface $bus
+        private CommandBusInterface $bus
     ) {
-        $this->bus = $bus;
     }
 
     /**

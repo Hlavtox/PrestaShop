@@ -45,18 +45,12 @@ class StorePresenter
      */
     protected $link;
 
-    /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
     public function __construct(
         Link $link,
-        TranslatorInterface $translator
+        protected TranslatorInterface $translator
     ) {
         $this->link = $link;
         $this->imageRetriever = new ImageRetriever($link);
-        $this->translator = $translator;
     }
 
     /**

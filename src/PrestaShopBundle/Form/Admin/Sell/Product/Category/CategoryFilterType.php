@@ -42,11 +42,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class CategoryFilterType extends AbstractType
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var CategoryDataProvider
      */
     private $categoryProvider;
@@ -57,16 +52,14 @@ class CategoryFilterType extends AbstractType
     private $contextLangId;
 
     /**
-     * @param TranslatorInterface $translator
      * @param CategoryDataProvider $categoryDataProvider
      * @param int $contextLangId
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         CategoryDataProvider $categoryDataProvider,
         int $contextLangId
     ) {
-        $this->translator = $translator;
         $this->categoryProvider = $categoryDataProvider;
         $this->contextLangId = $contextLangId;
     }

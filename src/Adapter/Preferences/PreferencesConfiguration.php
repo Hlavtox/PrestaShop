@@ -35,16 +35,9 @@ use PrestaShop\PrestaShop\Core\Http\CookieOptions;
  */
 class PreferencesConfiguration implements DataConfigurationInterface
 {
-    /**
-     * @var Configuration
-     */
-    private $configuration;
-
     public function __construct(
         Configuration $configuration
-    ) {
-        $this->configuration = $configuration;
-    }
+    ) {    }
 
     /**
      * {@inheritdoc}

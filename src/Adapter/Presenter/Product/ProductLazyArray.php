@@ -79,11 +79,6 @@ class ProductLazyArray extends AbstractLazyArray
     private $productColorsRetriever;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var ProductPresentationSettings
      */
     protected $settings;
@@ -103,11 +98,6 @@ class ProductLazyArray extends AbstractLazyArray
      */
     private $hookManager;
 
-    /**
-     * @var Configuration
-     */
-    private $configuration;
-
     public function __construct(
         ProductPresentationSettings $settings,
         array $product,
@@ -116,7 +106,7 @@ class ProductLazyArray extends AbstractLazyArray
         Link $link,
         PriceFormatter $priceFormatter,
         ProductColorsRetriever $productColorsRetriever,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         ?HookManager $hookManager = null,
         ?Configuration $configuration = null
     ) {
@@ -127,7 +117,6 @@ class ProductLazyArray extends AbstractLazyArray
         $this->link = $link;
         $this->priceFormatter = $priceFormatter;
         $this->productColorsRetriever = $productColorsRetriever;
-        $this->translator = $translator;
         $this->hookManager = $hookManager ?? new HookManager();
         $this->configuration = $configuration ?? new Configuration();
 

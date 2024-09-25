@@ -43,16 +43,6 @@ final class ServerRequirementsChecker implements ServerRequirementsCheckerInterf
     public const ISSUE_HTTPS_NOT_AVAILABLE = 'issue_https_not_available';
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var HostingInformation
      */
     private $hostingInformation;
@@ -63,19 +53,16 @@ final class ServerRequirementsChecker implements ServerRequirementsCheckerInterf
     private $phpExtensionChecker;
 
     /**
-     * @param TranslatorInterface $translator
      * @param Configuration $configuration
      * @param HostingInformation $hostingInformation
      * @param PhpExtensionCheckerInterface $phpExtensionChecker
      */
     public function __construct(
-        TranslatorInterface $translator,
-        Configuration $configuration,
+        private TranslatorInterface $translator,
+        private Configuration $configuration,
         HostingInformation $hostingInformation,
         PhpExtensionCheckerInterface $phpExtensionChecker
     ) {
-        $this->translator = $translator;
-        $this->configuration = $configuration;
         $this->hostingInformation = $hostingInformation;
         $this->phpExtensionChecker = $phpExtensionChecker;
     }

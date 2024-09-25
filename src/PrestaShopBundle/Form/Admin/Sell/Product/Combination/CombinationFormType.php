@@ -49,12 +49,11 @@ class CombinationFormType extends TranslatorAwareType
     private $combinationListener;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param EventSubscriberInterface $combinationListener
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         EventSubscriberInterface $combinationListener
     ) {

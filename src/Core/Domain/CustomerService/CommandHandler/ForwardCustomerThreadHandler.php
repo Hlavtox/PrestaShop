@@ -54,24 +54,12 @@ class ForwardCustomerThreadHandler implements ForwardCustomerThreadHandlerInterf
     private $context;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @param Context $context
-     * @param ConfigurationInterface $configuration
      */
-    public function __construct(Context $context, ConfigurationInterface $configuration)
+    public function __construct(Context $context, private ConfigurationInterface $configuration)
     {
         $this->context = $context;
         $this->translator = $this->context->getTranslator();
-        $this->configuration = $configuration;
     }
 
     /**

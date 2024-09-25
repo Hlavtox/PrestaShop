@@ -64,12 +64,11 @@ class VirtualProductFileType extends TranslatorAwareType
     private $virtualProductFileListener;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param int $maxFileSizeInMegabytes
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         int $maxFileSizeInMegabytes,
         RouterInterface $router,

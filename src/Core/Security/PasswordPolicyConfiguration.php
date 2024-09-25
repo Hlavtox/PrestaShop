@@ -58,16 +58,9 @@ class PasswordPolicyConfiguration implements DataConfigurationInterface
     public const CONFIGURATION_MINIMUM_SCORE = 'PS_SECURITY_PASSWORD_POLICY_MINIMUM_SCORE';
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     /**

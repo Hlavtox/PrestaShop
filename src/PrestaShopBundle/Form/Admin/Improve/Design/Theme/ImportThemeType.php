@@ -46,12 +46,11 @@ class ImportThemeType extends TranslatorAwareType
     private $themeZipsChoices;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $themeZipsChoices
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $themeZipsChoices
     ) {

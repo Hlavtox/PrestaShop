@@ -37,16 +37,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class EnabledLanguagesKpi implements KpiInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var string
      */
     private $clickLink;
@@ -57,19 +47,15 @@ final class EnabledLanguagesKpi implements KpiInterface
     private $sourceLink;
 
     /**
-     * @param TranslatorInterface $translator
-     * @param ConfigurationInterface $configuration
      * @param string $clickLink a link for clicking on the KPI
      * @param string $sourceLink a link to refresh KPI
      */
     public function __construct(
-        TranslatorInterface $translator,
-        ConfigurationInterface $configuration,
+        private TranslatorInterface $translator,
+        private ConfigurationInterface $configuration,
         $clickLink,
         $sourceLink
     ) {
-        $this->translator = $translator;
-        $this->configuration = $configuration;
         $this->clickLink = $clickLink;
         $this->sourceLink = $sourceLink;
     }

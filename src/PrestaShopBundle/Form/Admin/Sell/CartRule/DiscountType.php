@@ -52,7 +52,7 @@ class DiscountType extends TranslatorAwareType
     private $discountApplicationChoiceProvider;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         DiscountListener $discountListener,
         DiscountApplicationChoiceProvider $discountApplicationChoiceProvider

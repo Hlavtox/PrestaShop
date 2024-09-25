@@ -45,12 +45,11 @@ class StockOptionsType extends TranslatorAwareType
     private $router;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param RouterInterface $router
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         RouterInterface $router
     ) {

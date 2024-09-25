@@ -49,12 +49,11 @@ class GeneralType extends TranslatorAwareType
     private $legacyContext;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param LegacyContext $legacyContext
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         LegacyContext $legacyContext
     ) {

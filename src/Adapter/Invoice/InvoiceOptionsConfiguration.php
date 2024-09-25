@@ -52,7 +52,7 @@ final class InvoiceOptionsConfiguration extends AbstractMultistoreConfiguration
      * @param FormChoiceProviderInterface $invoiceModelByNameChoiceProvider
      */
     public function __construct(
-        Configuration $configuration,
+        private Configuration $configuration,
         Context $shopContext,
         FeatureInterface $multistoreFeature,
         FormChoiceProviderInterface $invoiceModelByNameChoiceProvider

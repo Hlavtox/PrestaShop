@@ -36,32 +36,19 @@ use PrestaShop\PrestaShop\Core\Domain\Feature\QueryResult\EditableFeature;
 class FeatureFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
-     * @var bool
-     */
-    private $isMultistoreFeatureActive;
-
-    /**
      * @var array
      */
     private $defaultShopAssociation;
 
     /**
-     * @param CommandBusInterface $queryBus
      * @param bool $isMultistoreFeatureActive
      * @param array $defaultShopAssociation
      */
     public function __construct(
-        CommandBusInterface $queryBus,
-        $isMultistoreFeatureActive,
+        private CommandBusInterface $queryBus,
+        private $isMultistoreFeatureActive,
         array $defaultShopAssociation
     ) {
-        $this->queryBus = $queryBus;
-        $this->isMultistoreFeatureActive = $isMultistoreFeatureActive;
         $this->defaultShopAssociation = $defaultShopAssociation;
     }
 

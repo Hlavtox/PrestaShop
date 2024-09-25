@@ -45,20 +45,13 @@ class TaxRuleGridDataFactory implements GridDataFactoryInterface
     private $doctrineTaxRuleDataFactory;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @param GridDataFactoryInterface $doctrineTaxRuleDataFactory
-     * @param TranslatorInterface $translator
      */
     public function __construct(
         GridDataFactoryInterface $doctrineTaxRuleDataFactory,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->doctrineTaxRuleDataFactory = $doctrineTaxRuleDataFactory;
-        $this->translator = $translator;
     }
 
     /**

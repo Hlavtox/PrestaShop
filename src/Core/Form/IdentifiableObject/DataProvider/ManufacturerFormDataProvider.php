@@ -36,11 +36,6 @@ use PrestaShop\PrestaShop\Core\Domain\Manufacturer\QueryResult\EditableManufactu
 final class ManufacturerFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $bus;
-
-    /**
      * @var bool
      */
     private $multistoreEnabled;
@@ -51,16 +46,14 @@ final class ManufacturerFormDataProvider implements FormDataProviderInterface
     private $defaultShopAssociation;
 
     /**
-     * @param CommandBusInterface $bus
      * @param bool $multistoreEnabled
      * @param int[] $defaultShopAssociation
      */
     public function __construct(
-        CommandBusInterface $bus,
+        private CommandBusInterface $bus,
         $multistoreEnabled,
         array $defaultShopAssociation
     ) {
-        $this->bus = $bus;
         $this->multistoreEnabled = $multistoreEnabled;
         $this->defaultShopAssociation = $defaultShopAssociation;
     }

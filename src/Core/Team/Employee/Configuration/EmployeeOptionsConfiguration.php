@@ -35,21 +35,14 @@ use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 final class EmployeeOptionsConfiguration implements DataConfigurationInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var OptionsCheckerInterface
      */
     private $optionsChecker;
 
     /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration, OptionsCheckerInterface $optionsChecker)
     {
-        $this->configuration = $configuration;
         $this->optionsChecker = $optionsChecker;
     }
 

@@ -60,7 +60,7 @@ class ApplicableGroupsType extends TranslatorAwareType
     protected $contextShopId;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         FormChoiceProviderInterface $groupByIdChoiceProvider,
         FormChoiceProviderInterface $shopByIdChoiceProvider,

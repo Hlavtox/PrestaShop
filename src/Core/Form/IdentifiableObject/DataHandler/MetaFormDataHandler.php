@@ -37,17 +37,9 @@ use PrestaShop\PrestaShop\Core\Domain\Meta\ValueObject\MetaId;
  */
 final class MetaFormDataHandler implements FormDataHandlerInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    private $commandBus;
-
-    /**
-     * @param CommandBusInterface $commandBus
-     */
-    public function __construct(CommandBusInterface $commandBus)
-    {
-        $this->commandBus = $commandBus;
+    public function __construct(
+        private CommandBusInterface $commandBus
+    ) {
     }
 
     /**

@@ -37,11 +37,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class OrdersPerCustomerKpi implements KpiInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var ConfigurationInterface
      */
     private $kpiConfiguration;
@@ -52,11 +47,10 @@ final class OrdersPerCustomerKpi implements KpiInterface
     private $sourceUrl;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         ConfigurationInterface $kpiConfiguration,
         $sourceUrl
     ) {
-        $this->translator = $translator;
         $this->kpiConfiguration = $kpiConfiguration;
         $this->sourceUrl = $sourceUrl;
     }

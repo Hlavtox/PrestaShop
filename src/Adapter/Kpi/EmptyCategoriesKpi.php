@@ -39,16 +39,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class EmptyCategoriesKpi implements KpiInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var string
      */
     private $sourceUrl;
@@ -59,19 +49,15 @@ final class EmptyCategoriesKpi implements KpiInterface
     private $hrefUrl;
 
     /**
-     * @param TranslatorInterface $translator
-     * @param ConfigurationInterface $configuration
      * @param string $sourceUrl
      * @param string $hrefUrl
      */
     public function __construct(
-        TranslatorInterface $translator,
-        ConfigurationInterface $configuration,
+        private TranslatorInterface $translator,
+        private ConfigurationInterface $configuration,
         $sourceUrl,
         $hrefUrl
     ) {
-        $this->translator = $translator;
-        $this->configuration = $configuration;
         $this->sourceUrl = $sourceUrl;
         $this->hrefUrl = $hrefUrl;
     }

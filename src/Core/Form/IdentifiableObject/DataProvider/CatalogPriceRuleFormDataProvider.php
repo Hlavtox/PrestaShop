@@ -36,17 +36,9 @@ use PrestaShop\PrestaShop\Core\Domain\ValueObject\Reduction;
  */
 final class CatalogPriceRuleFormDataProvider implements FormDataProviderInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
-     * @param CommandBusInterface $queryBus
-     */
-    public function __construct(CommandBusInterface $queryBus)
-    {
-        $this->queryBus = $queryBus;
+    public function __construct(
+        private CommandBusInterface $queryBus
+    ) {
     }
 
     /**

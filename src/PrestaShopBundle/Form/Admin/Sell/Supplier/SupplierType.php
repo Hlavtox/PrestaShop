@@ -78,7 +78,6 @@ class SupplierType extends TranslatorAwareType
     /**
      * @param ConfigurableFormChoiceProviderInterface $statesChoiceProvider
      * @param int $contextCountryId
-     * @param TranslatorInterface $translator
      * @param bool $isMultistoreEnabled
      * @param UrlGeneratorInterface $router
      * @param array $locales
@@ -86,7 +85,7 @@ class SupplierType extends TranslatorAwareType
     public function __construct(
         ConfigurableFormChoiceProviderInterface $statesChoiceProvider,
         int $contextCountryId,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         bool $isMultistoreEnabled,
         UrlGeneratorInterface $router,
         array $locales = []

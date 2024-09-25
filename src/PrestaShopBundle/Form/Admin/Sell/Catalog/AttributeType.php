@@ -58,7 +58,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class AttributeType extends TranslatorAwareType
 {
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         protected AttributeGroupRepository $attributeGroupRepository,
         protected ShopContext $shopContext,

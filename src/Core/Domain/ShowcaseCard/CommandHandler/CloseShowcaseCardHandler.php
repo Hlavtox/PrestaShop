@@ -38,11 +38,6 @@ use PrestaShop\PrestaShop\Core\Domain\ShowcaseCard\ConfigurationMap;
 final class CloseShowcaseCardHandler implements CloseShowcaseCardHandlerInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var ConfigurationMap
      */
     private $configurationMap;
@@ -50,12 +45,10 @@ final class CloseShowcaseCardHandler implements CloseShowcaseCardHandlerInterfac
     /**
      * CloseShowcaseCardHandler constructor.
      *
-     * @param ConfigurationInterface $configuration
      * @param ConfigurationMap $configurationMap
      */
     public function __construct(ConfigurationInterface $configuration, ConfigurationMap $configurationMap)
     {
-        $this->configuration = $configuration;
         $this->configurationMap = $configurationMap;
     }
 

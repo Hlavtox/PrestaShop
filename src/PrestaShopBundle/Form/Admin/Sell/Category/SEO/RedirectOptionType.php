@@ -43,7 +43,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class RedirectOptionType extends TranslatorAwareType
 {
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         private readonly RouterInterface $router,
         private readonly DataTransformerInterface $targetTransformer,

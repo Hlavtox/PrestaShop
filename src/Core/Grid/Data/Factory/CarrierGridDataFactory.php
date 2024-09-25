@@ -50,23 +50,16 @@ class CarrierGridDataFactory implements GridDataFactoryInterface
     private $carrierLogoProvider;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @param GridDataFactoryInterface $carrierDataFactory
      * @param ImageProviderInterface $carrierLogoProvider
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(
         GridDataFactoryInterface $carrierDataFactory,
         ImageProviderInterface $carrierLogoProvider,
-        ConfigurationInterface $configuration
+        private ConfigurationInterface $configuration
     ) {
         $this->carrierDataFactory = $carrierDataFactory;
         $this->carrierLogoProvider = $carrierLogoProvider;
-        $this->configuration = $configuration;
     }
 
     /**

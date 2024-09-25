@@ -63,13 +63,12 @@ class CurrencyType extends TranslatorAwareType
     private $isShopFeatureEnabled;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $allCurrencies
      * @param bool $isShopFeatureEnabled
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $allCurrencies,
         $isShopFeatureEnabled

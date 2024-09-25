@@ -67,26 +67,19 @@ class SpecificPriceRepository extends AbstractObjectModelRepository
     private $dbPrefix;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @param Connection $connection
      * @param string $dbPrefix
      * @param SpecificPriceValidator $specificPriceValidator
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(
         Connection $connection,
         string $dbPrefix,
         SpecificPriceValidator $specificPriceValidator,
-        ConfigurationInterface $configuration
+        private ConfigurationInterface $configuration
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;
         $this->specificPriceValidator = $specificPriceValidator;
-        $this->configuration = $configuration;
     }
 
     /**

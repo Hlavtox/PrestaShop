@@ -36,32 +36,19 @@ use PrestaShop\PrestaShop\Core\Domain\Language\QueryResult\EditableLanguage;
 final class LanguageFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $bus;
-
-    /**
-     * @var bool
-     */
-    private $isMultistoreFeatureActive;
-
-    /**
      * @var int[]
      */
     private $defaultShopAssociation;
 
     /**
-     * @param CommandBusInterface $bus
      * @param bool $isMultistoreFeatureActive
      * @param int[] $defaultShopAssociation
      */
     public function __construct(
-        CommandBusInterface $bus,
-        $isMultistoreFeatureActive,
+        private CommandBusInterface $bus,
+        private $isMultistoreFeatureActive,
         array $defaultShopAssociation
     ) {
-        $this->bus = $bus;
-        $this->isMultistoreFeatureActive = $isMultistoreFeatureActive;
         $this->defaultShopAssociation = $defaultShopAssociation;
     }
 

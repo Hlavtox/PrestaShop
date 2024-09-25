@@ -40,11 +40,6 @@ use Tools;
 class CategoryViewDataProvider
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var FeatureInterface
      */
     private $multishopFeature;
@@ -60,18 +55,16 @@ class CategoryViewDataProvider
     private $shopContext;
 
     /**
-     * @param ConfigurationInterface $configuration
      * @param FeatureInterface $multishopFeature
      * @param Context $shopContext
      * @param int $contextLangId
      */
     public function __construct(
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         FeatureInterface $multishopFeature,
         Context $shopContext,
         $contextLangId
     ) {
-        $this->configuration = $configuration;
         $this->multishopFeature = $multishopFeature;
         $this->contextLangId = $contextLangId;
         $this->shopContext = $shopContext;

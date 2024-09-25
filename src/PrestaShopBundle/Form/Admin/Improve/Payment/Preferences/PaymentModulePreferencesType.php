@@ -68,7 +68,6 @@ class PaymentModulePreferencesType extends TranslatorAwareType
     private $currencyChoicesProvider;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $paymentModules
      * @param array $countryChoices
@@ -78,7 +77,7 @@ class PaymentModulePreferencesType extends TranslatorAwareType
      * @param CountryDataProvider $countryDataProvider
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $paymentModules,
         array $countryChoices,

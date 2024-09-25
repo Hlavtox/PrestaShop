@@ -60,22 +60,15 @@ class GiftOptionsType extends TranslatorAwareType
     private $router;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param TranslatorInterface $translator
      * @param array $locales
-     * @param ConfigurationInterface $configuration
      * @param string $defaultCurrencyIsoCode
      * @param array $taxChoices
      * @param RouterInterface $router
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         $defaultCurrencyIsoCode,
         array $taxChoices,
         RouterInterface $router
@@ -85,7 +78,6 @@ class GiftOptionsType extends TranslatorAwareType
         $this->defaultCurrencyIsoCode = $defaultCurrencyIsoCode;
         $this->taxChoices = $taxChoices;
         $this->router = $router;
-        $this->configuration = $configuration;
     }
 
     /**

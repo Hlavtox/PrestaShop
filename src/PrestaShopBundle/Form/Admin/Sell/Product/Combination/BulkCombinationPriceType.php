@@ -70,7 +70,7 @@ class BulkCombinationPriceType extends TranslatorAwareType
     private $taxComputer;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         string $defaultCurrencyIsoCode,
         string $weightUnit,

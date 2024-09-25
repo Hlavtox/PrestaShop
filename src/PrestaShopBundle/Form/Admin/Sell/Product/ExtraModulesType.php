@@ -61,7 +61,7 @@ class ExtraModulesType extends TranslatorAwareType
     private $moduleRepository;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         HookDispatcherInterface $hookDispatcher,
         ModuleDataProvider $moduleDataProvider,

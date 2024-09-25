@@ -59,9 +59,6 @@ class ModuleManager implements ModuleManagerInterface
     /** @var SourceHandlerFactory */
     private $sourceFactory;
 
-    /** @var TranslatorInterface */
-    private $translator;
-
     /** @var EventDispatcherInterface */
     private $eventDispatcher;
 
@@ -76,7 +73,7 @@ class ModuleManager implements ModuleManagerInterface
         ModuleDataProvider $moduleDataProvider,
         AdminModuleDataProvider $adminModuleDataProvider,
         SourceHandlerFactory $sourceFactory,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         EventDispatcherInterface $eventDispatcher,
         HookManager $hookManager
     ) {
@@ -85,7 +82,6 @@ class ModuleManager implements ModuleManagerInterface
         $this->moduleDataProvider = $moduleDataProvider;
         $this->adminModuleDataProvider = $adminModuleDataProvider;
         $this->sourceFactory = $sourceFactory;
-        $this->translator = $translator;
         $this->eventDispatcher = $eventDispatcher;
         $this->hookManager = $hookManager;
     }

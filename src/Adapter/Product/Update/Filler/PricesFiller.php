@@ -45,11 +45,6 @@ class PricesFiller implements ProductFillerInterface
     private $numberExtractor;
 
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @param NumberExtractor $numberExtractor
      * @param Configuration $configuration
      */
@@ -58,7 +53,6 @@ class PricesFiller implements ProductFillerInterface
         Configuration $configuration
     ) {
         $this->numberExtractor = $numberExtractor;
-        $this->configuration = $configuration;
     }
 
     /**

@@ -61,14 +61,13 @@ class WebserviceKeyType extends TranslatorAwareType
     private $permissionChoices;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param bool $isMultistoreFeatureUsed
      * @param array $resourceChoices
      * @param array $permissionChoices
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         $isMultistoreFeatureUsed,
         array $resourceChoices,

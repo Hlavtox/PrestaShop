@@ -42,11 +42,10 @@ class OptionalFeaturesType extends TranslatorAwareType
     private $isCombinationsUsed;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param bool $isCombinationsUsed
      */
-    public function __construct(TranslatorInterface $translator, array $locales, $isCombinationsUsed)
+    public function __construct(private TranslatorInterface $translator, array $locales, $isCombinationsUsed)
     {
         parent::__construct($translator, $locales);
 

@@ -38,7 +38,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class CarrierType extends TranslatorAwareType
 {
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         protected readonly RouterInterface $router,
     ) {

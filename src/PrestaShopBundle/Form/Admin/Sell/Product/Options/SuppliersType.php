@@ -43,12 +43,11 @@ class SuppliersType extends TranslatorAwareType
     private $supplierNameByIdChoiceProvider;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param FormChoiceProviderInterface $supplierNameByIdChoiceProvider
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         FormChoiceProviderInterface $supplierNameByIdChoiceProvider
     ) {

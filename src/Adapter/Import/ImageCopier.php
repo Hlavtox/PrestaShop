@@ -39,11 +39,6 @@ use PrestaShop\PrestaShop\Core\Hook\HookDispatcherInterface;
 final class ImageCopier
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var Tools
      */
     private $tools;
@@ -59,18 +54,16 @@ final class ImageCopier
     private $hookDispatcher;
 
     /**
-     * @param ConfigurationInterface $configuration
      * @param Tools $tools
      * @param int $contextShopId
      * @param HookDispatcherInterface $hookDispatcher
      */
     public function __construct(
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         Tools $tools,
         $contextShopId,
         HookDispatcherInterface $hookDispatcher
     ) {
-        $this->configuration = $configuration;
         $this->tools = $tools;
         $this->contextShopId = $contextShopId;
         $this->hookDispatcher = $hookDispatcher;

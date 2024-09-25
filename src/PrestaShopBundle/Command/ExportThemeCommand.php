@@ -50,20 +50,14 @@ class ExportThemeCommand extends Command
      */
     private $themeExporter;
 
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
     public function __construct(
         ThemeRepository $themeRepository,
         ThemeExporter $themeExporter,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         parent::__construct();
         $this->themeRepository = $themeRepository;
         $this->themeExporter = $themeExporter;
-        $this->translator = $translator;
     }
 
     protected function configure()

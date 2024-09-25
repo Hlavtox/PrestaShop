@@ -51,12 +51,11 @@ class PricingType extends TranslatorAwareType
     private $defaultCurrencyIsoCode;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param string $defaultCurrencyIsoCode
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         string $defaultCurrencyIsoCode
     ) {

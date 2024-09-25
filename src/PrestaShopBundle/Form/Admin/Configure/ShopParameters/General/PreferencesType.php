@@ -58,27 +58,21 @@ class PreferencesType extends TranslatorAwareType
     private $isAllShopContext;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-    /**
      * @var RequestStack
      */
     private $requestStack;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
-     * @param ConfigurationInterface $configuration
      * @param bool $isShopFeatureEnabled
      * @param bool $isSingleShopContext
      * @param bool $isAllShopContext
      */
     public function __construct(
         RequestStack $requestStack,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         bool $isShopFeatureEnabled,
         bool $isSingleShopContext,
         bool $isAllShopContext
@@ -88,7 +82,6 @@ class PreferencesType extends TranslatorAwareType
         $this->isShopFeatureEnabled = $isShopFeatureEnabled;
         $this->isSingleShopContext = $isSingleShopContext;
         $this->isAllShopContext = $isAllShopContext;
-        $this->configuration = $configuration;
         $this->requestStack = $requestStack;
     }
 

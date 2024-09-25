@@ -56,7 +56,7 @@ class CarrierOptionsType extends TranslatorAwareType
     private $orderWayChoices;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $carriers,
         array $orderByChoices,

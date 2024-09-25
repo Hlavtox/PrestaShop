@@ -41,11 +41,6 @@ use PrestaShop\PrestaShop\Core\Security\PasswordGenerator;
 final class CustomerFormDataHandler implements FormDataHandlerInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $bus;
-
-    /**
      * @var int
      */
     private $contextShopId;
@@ -61,18 +56,16 @@ final class CustomerFormDataHandler implements FormDataHandlerInterface
     private $defaultGroupsProvider;
 
     /**
-     * @param CommandBusInterface $bus
      * @param int $contextShopId
      * @param bool $isB2bFeatureEnabled
      * @param DefaultGroupsProviderInterface $defaultGroupsProvider
      */
     public function __construct(
-        CommandBusInterface $bus,
+        private CommandBusInterface $bus,
         $contextShopId,
         $isB2bFeatureEnabled,
         DefaultGroupsProviderInterface $defaultGroupsProvider
     ) {
-        $this->bus = $bus;
         $this->contextShopId = $contextShopId;
         $this->isB2bFeatureEnabled = $isB2bFeatureEnabled;
         $this->defaultGroupsProvider = $defaultGroupsProvider;

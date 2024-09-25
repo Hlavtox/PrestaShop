@@ -73,28 +73,21 @@ final class GetCustomerForViewingHandler implements GetCustomerForViewingHandler
     private $contextLangId;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var Locale
      */
     private $locale;
 
     /**
-     * @param TranslatorInterface $translator
      * @param int $contextLangId
      * @param Locale $locale
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         $contextLangId,
         Locale $locale
     ) {
         $this->context = new LegacyContext();
         $this->contextLangId = $contextLangId;
-        $this->translator = $translator;
         $this->locale = $locale;
     }
 

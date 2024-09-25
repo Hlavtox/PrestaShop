@@ -56,9 +56,6 @@ final class MailPreviewVariablesBuilder
     public const NEW_ORDER = 'new_order';
     public const RETURN_SLIP = 'return_slip';
 
-    /** @var ConfigurationInterface */
-    private $configuration;
-
     /** @var LegacyContext */
     private $legacyContext;
 
@@ -77,14 +74,8 @@ final class MailPreviewVariablesBuilder
     private $mailPartialTemplateRenderer;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * MailPreviewVariablesBuilder constructor.
      *
-     * @param ConfigurationInterface $configuration
      * @param LegacyContext $legacyContext
      * @param ContextEmployeeProviderInterface $employeeProvider
      * @param MailPartialTemplateRenderer $mailPartialTemplateRenderer
@@ -92,14 +83,13 @@ final class MailPreviewVariablesBuilder
      * @param TranslatorInterface $translatorComponent
      */
     public function __construct(
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         LegacyContext $legacyContext,
         ContextEmployeeProviderInterface $employeeProvider,
         MailPartialTemplateRenderer $mailPartialTemplateRenderer,
         Locale $locale,
-        TranslatorInterface $translatorComponent
+        private TranslatorInterface $translatorComponent
     ) {
-        $this->configuration = $configuration;
         $this->legacyContext = $legacyContext;
         $this->context = $this->legacyContext->getContext();
         $this->employeeProvider = $employeeProvider;

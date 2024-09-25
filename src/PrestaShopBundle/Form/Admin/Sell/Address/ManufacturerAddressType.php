@@ -67,7 +67,6 @@ class ManufacturerAddressType extends TranslatorAwareType
     private $router;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $manufacturerChoices
      * @param ConfigurableFormChoiceProviderInterface $statesChoiceProvider
@@ -75,7 +74,7 @@ class ManufacturerAddressType extends TranslatorAwareType
      * @param Router $router
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $manufacturerChoices,
         ConfigurableFormChoiceProviderInterface $statesChoiceProvider,

@@ -36,7 +36,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class FeatureChoiceType extends TranslatorAwareType
 {
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         protected readonly FormChoiceProviderInterface $featureChoiceProvider
     ) {

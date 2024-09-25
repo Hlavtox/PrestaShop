@@ -43,12 +43,11 @@ class EmployeeOptionsType extends TranslatorAwareType
     private $canOptionsBeChanged;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param bool $canOptionsBeChanged
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         $canOptionsBeChanged
     ) {

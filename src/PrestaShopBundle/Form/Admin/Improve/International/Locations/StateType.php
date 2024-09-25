@@ -47,10 +47,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class StateType extends AbstractType
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-    /**
      * @var ConfigurableFormChoiceProviderInterface
      */
     private $countriesChoiceProvider;
@@ -62,16 +58,14 @@ class StateType extends AbstractType
     /**
      * StateType constructor.
      *
-     * @param TranslatorInterface $translator
      * @param ConfigurableFormChoiceProviderInterface $countriesChoiceProvider
      * @param ConfigurableFormChoiceProviderInterface $zonesChoiceProvider
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         ConfigurableFormChoiceProviderInterface $countriesChoiceProvider,
         ConfigurableFormChoiceProviderInterface $zonesChoiceProvider
     ) {
-        $this->translator = $translator;
         $this->countriesChoiceProvider = $countriesChoiceProvider;
         $this->zonesChoiceProvider = $zonesChoiceProvider;
     }

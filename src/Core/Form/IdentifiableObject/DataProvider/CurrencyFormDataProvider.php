@@ -42,18 +42,11 @@ final class CurrencyFormDataProvider implements FormDataProviderInterface
     private $contextShopIds;
 
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
-     * @param CommandBusInterface $queryBus
      * @param array $contextShopIds
      */
-    public function __construct(CommandBusInterface $queryBus, array $contextShopIds)
+    public function __construct(private CommandBusInterface $queryBus, array $contextShopIds)
     {
         $this->contextShopIds = $contextShopIds;
-        $this->queryBus = $queryBus;
     }
 
     /**

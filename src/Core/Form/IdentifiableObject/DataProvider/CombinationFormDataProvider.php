@@ -48,24 +48,17 @@ use PrestaShopBundle\Form\Extension\DisablingSwitchExtension;
 class CombinationFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
      * @var Context
      */
     private $shopContext;
 
     /**
-     * @param CommandBusInterface $queryBus
      * @param Context $shopContext
      */
     public function __construct(
-        CommandBusInterface $queryBus,
+        private CommandBusInterface $queryBus,
         Context $shopContext
     ) {
-        $this->queryBus = $queryBus;
         $this->shopContext = $shopContext;
     }
 

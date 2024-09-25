@@ -38,17 +38,8 @@ use PrestaShop\PrestaShop\Core\Domain\Country\ValueObject\CountryId;
  */
 class CountryFormDataHandler implements FormDataHandlerInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    protected $commandBus;
-
-    /**
-     * @param CommandBusInterface $commandBus
-     */
-    public function __construct(CommandBusInterface $commandBus)
+    public function __construct(protected CommandBusInterface $commandBus)
     {
-        $this->commandBus = $commandBus;
     }
 
     /**

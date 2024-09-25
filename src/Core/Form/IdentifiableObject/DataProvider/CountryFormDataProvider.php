@@ -38,11 +38,6 @@ use PrestaShop\PrestaShop\Core\Domain\Country\QueryResult\CountryForEditing;
 class CountryFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    protected $queryBus;
-
-    /**
      * @var bool
      */
     protected $multistoreEnabled;
@@ -53,16 +48,14 @@ class CountryFormDataProvider implements FormDataProviderInterface
     protected $defaultShopAssociation;
 
     /**
-     * @param CommandBusInterface $queryBus
      * @param bool $multistoreEnabled
      * @param array $defaultShopAssociation
      */
     public function __construct(
-        CommandBusInterface $queryBus,
+        protected CommandBusInterface $queryBus,
         bool $multistoreEnabled,
         array $defaultShopAssociation
     ) {
-        $this->queryBus = $queryBus;
         $this->multistoreEnabled = $multistoreEnabled;
         $this->defaultShopAssociation = $defaultShopAssociation;
     }

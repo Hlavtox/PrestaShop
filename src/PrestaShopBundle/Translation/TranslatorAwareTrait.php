@@ -41,11 +41,9 @@ trait TranslatorAwareTrait
     /**
      * Set translator instance.
      *
-     * @param TranslatorInterface $translator
      */
     public function setTranslator(TranslatorInterface $translator)
     {
-        $this->translator = $translator;
     }
 
     /**

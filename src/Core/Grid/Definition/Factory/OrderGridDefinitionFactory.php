@@ -66,11 +66,6 @@ final class OrderGridDefinitionFactory extends AbstractFilterableGridDefinitionF
     public const GRID_ID = 'order';
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var FormChoiceProviderInterface
      */
     private $orderCountriesChoiceProvider;
@@ -106,7 +101,6 @@ final class OrderGridDefinitionFactory extends AbstractFilterableGridDefinitionF
 
     /**
      * @param HookDispatcherInterface $dispatcher
-     * @param ConfigurationInterface $configuration
      * @param FormChoiceProviderInterface $orderCountriesChoiceProvider
      * @param FormChoiceProviderInterface $orderStatusesChoiceProvider
      * @param string $contextDateFormat
@@ -117,7 +111,7 @@ final class OrderGridDefinitionFactory extends AbstractFilterableGridDefinitionF
      */
     public function __construct(
         HookDispatcherInterface $dispatcher,
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         FormChoiceProviderInterface $orderCountriesChoiceProvider,
         FormChoiceProviderInterface $orderStatusesChoiceProvider,
         $contextDateFormat,
@@ -128,7 +122,6 @@ final class OrderGridDefinitionFactory extends AbstractFilterableGridDefinitionF
     ) {
         parent::__construct($dispatcher);
 
-        $this->configuration = $configuration;
         $this->orderCountriesChoiceProvider = $orderCountriesChoiceProvider;
         $this->orderStatusesChoiceProvider = $orderStatusesChoiceProvider;
         $this->contextDateFormat = $contextDateFormat;

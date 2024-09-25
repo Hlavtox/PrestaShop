@@ -46,11 +46,6 @@ final class PreferencesFormHandler implements FormHandlerInterface
      */
     private $formDataProvider;
 
-    /**
-     * @var Configuration
-     */
-    private $configuration;
-
     public function __construct(
         FormFactoryInterface $formFactory,
         PreferencesFormDataProvider $formDataProvider,
@@ -58,7 +53,6 @@ final class PreferencesFormHandler implements FormHandlerInterface
     ) {
         $this->formFactory = $formFactory;
         $this->formDataProvider = $formDataProvider;
-        $this->configuration = $configuration;
     }
 
     /**

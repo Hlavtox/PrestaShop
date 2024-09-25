@@ -41,15 +41,9 @@ class UploadQuotaType extends TranslatorAwareType
     public const FIELD_MAX_SIZE_DOWNLOADABLE_FILE = 'max_size_downloadable_product';
     public const FIELD_MAX_SIZE_PRODUCT_IMAGE = 'max_size_product_image';
 
-    /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    public function __construct(TranslatorInterface $translator, array $locales, ConfigurationInterface $configuration)
+    public function __construct(private TranslatorInterface $translator, array $locales, private ConfigurationInterface $configuration)
     {
         parent::__construct($translator, $locales);
-        $this->configuration = $configuration;
     }
 
     /**

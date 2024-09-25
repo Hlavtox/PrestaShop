@@ -56,14 +56,13 @@ class ExportCataloguesType extends TranslatorAwareType
     private $moduleChoices;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $themeChoices
      * @param array $exportTranslationCoreTypeChoices
      * @param array $moduleChoices
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $exportTranslationCoreTypeChoices,
         array $themeChoices,

@@ -48,12 +48,11 @@ class CatalogPriceRulesType extends TranslatorAwareType
     /**
      * PricingType constructor.
      *
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param LegacyContext $legacyContext
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         LegacyContext $legacyContext
     ) {

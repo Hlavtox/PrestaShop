@@ -36,22 +36,15 @@ use PrestaShop\PrestaShop\Core\Domain\Webservice\QueryResult\EditableWebserviceK
 final class WebserviceKeyFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
      * @var int[]
      */
     private $shopIds;
 
     /**
-     * @param CommandBusInterface $queryBus
      * @param int[] $shopIds
      */
-    public function __construct(CommandBusInterface $queryBus, array $shopIds)
+    public function __construct(private CommandBusInterface $queryBus, array $shopIds)
     {
-        $this->queryBus = $queryBus;
         $this->shopIds = $shopIds;
     }
 

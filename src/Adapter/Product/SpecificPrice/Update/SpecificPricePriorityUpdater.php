@@ -53,21 +53,14 @@ class SpecificPricePriorityUpdater
     private $dbPrefix;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(
         Connection $connection,
         string $dbPrefix,
-        ConfigurationInterface $configuration
+        private ConfigurationInterface $configuration
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;
-        $this->configuration = $configuration;
     }
 
     /**

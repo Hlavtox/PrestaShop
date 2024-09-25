@@ -52,12 +52,11 @@ class ManufacturerType extends TranslatorAwareType
     private $isMultistoreEnabled;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param bool $isMultistoreEnabled
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         $isMultistoreEnabled
     ) {

@@ -50,13 +50,6 @@ class ModuleDataProvider
     private $logger;
 
     /**
-     * Translator.
-     *
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * EntityManager for module history.
      *
      * @var EntityManager
@@ -68,10 +61,9 @@ class ModuleDataProvider
      */
     private $employeeID;
 
-    public function __construct(LoggerInterface $logger, TranslatorInterface $translator, ?EntityManager $entityManager = null)
+    public function __construct(LoggerInterface $logger, private TranslatorInterface $translator, ?EntityManager $entityManager = null)
     {
         $this->logger = $logger;
-        $this->translator = $translator;
         $this->entityManager = $entityManager;
         $this->employeeID = 0;
     }

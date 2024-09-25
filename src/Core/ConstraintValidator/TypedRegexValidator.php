@@ -55,18 +55,10 @@ class TypedRegexValidator extends ConstraintValidator
     public const NAME_CHARS = '0-9!<>,;?=+()@#"{}_$%:';
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(
-        ConfigurationInterface $configuration
-    ) {
-        $this->configuration = $configuration;
-    }
+        private ConfigurationInterface $configuration
+    ) {    }
 
     /**
      * {@inheritdoc}

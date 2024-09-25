@@ -41,11 +41,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ZoneType extends AbstractType
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var bool
      */
     private $isMultistoreEnabled;
@@ -53,12 +48,10 @@ class ZoneType extends AbstractType
     /**
      * ZoneType constructor.
      *
-     * @param TranslatorInterface $translator
      * @param bool $isMultistoreEnabled
      */
-    public function __construct(TranslatorInterface $translator, bool $isMultistoreEnabled)
+    public function __construct(private TranslatorInterface $translator, bool $isMultistoreEnabled)
     {
-        $this->translator = $translator;
         $this->isMultistoreEnabled = $isMultistoreEnabled;
     }
 

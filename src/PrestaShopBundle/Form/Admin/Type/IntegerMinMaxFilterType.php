@@ -42,9 +42,8 @@ final class IntegerMinMaxFilterType extends AbstractType
 {
     use TranslatorAwareTrait;
 
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(private TranslatorInterface $translator)
     {
-        $this->translator = $translator;
     }
 
     /**

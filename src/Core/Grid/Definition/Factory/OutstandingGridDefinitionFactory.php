@@ -53,11 +53,6 @@ final class OutstandingGridDefinitionFactory extends AbstractGridDefinitionFacto
     public const GRID_ID = 'outstanding';
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var array<string, int>
      */
     private $risks;
@@ -69,19 +64,17 @@ final class OutstandingGridDefinitionFactory extends AbstractGridDefinitionFacto
 
     /**
      * @param HookDispatcherInterface $hookDispatcher
-     * @param ConfigurationInterface $configuration
      * @param int $languageId
      * @param string $contextDateFormat
      */
     public function __construct(
         HookDispatcherInterface $hookDispatcher,
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         int $languageId,
         string $contextDateFormat
     ) {
         parent::__construct($hookDispatcher);
 
-        $this->configuration = $configuration;
         $this->contextDateFormat = $contextDateFormat;
         foreach (Risk::getRisks($languageId) as $risk) {
             /* @var $risk Risk */

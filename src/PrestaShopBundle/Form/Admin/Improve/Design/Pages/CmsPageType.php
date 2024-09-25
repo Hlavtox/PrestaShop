@@ -68,13 +68,12 @@ class CmsPageType extends TranslatorAwareType
     private $isMultiShopEnabled;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $allCmsCategories
      * @param bool $isMultiShopEnabled
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $allCmsCategories,
         $isMultiShopEnabled

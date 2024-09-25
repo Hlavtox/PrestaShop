@@ -35,15 +35,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class ProductVisibilityChoiceProvider implements FormChoiceProviderInterface, FormChoiceAttributeProviderInterface
 {
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
     public function __construct(
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
-        $this->translator = $translator;
     }
 
     /**

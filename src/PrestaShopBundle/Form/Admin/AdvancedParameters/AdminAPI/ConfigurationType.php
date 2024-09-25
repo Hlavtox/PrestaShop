@@ -37,7 +37,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ConfigurationType extends TranslatorAwareType
 {
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         private readonly bool $isDebug,
     ) {

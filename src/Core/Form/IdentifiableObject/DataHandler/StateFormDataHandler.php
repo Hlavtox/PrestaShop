@@ -38,17 +38,9 @@ use PrestaShop\PrestaShop\Core\Domain\State\ValueObject\StateId;
  */
 class StateFormDataHandler implements FormDataHandlerInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    private $commandBus;
-
-    /**
-     * @param CommandBusInterface $commandBus
-     */
-    public function __construct(CommandBusInterface $commandBus)
-    {
-        $this->commandBus = $commandBus;
+    public function __construct(
+        private CommandBusInterface $commandBus
+    ) {
     }
 
     /**

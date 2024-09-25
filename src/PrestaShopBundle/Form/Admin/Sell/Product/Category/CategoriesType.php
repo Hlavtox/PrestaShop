@@ -50,13 +50,12 @@ class CategoriesType extends TranslatorAwareType
     private $eventSubscriber;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param ConfigurableFormChoiceProviderInterface $defaultCategoryChoiceProvider
      * @param EventSubscriberInterface $eventSubscriber
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         ConfigurableFormChoiceProviderInterface $defaultCategoryChoiceProvider,
         EventSubscriberInterface $eventSubscriber

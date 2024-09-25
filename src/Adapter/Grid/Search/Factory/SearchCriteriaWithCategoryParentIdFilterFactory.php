@@ -45,11 +45,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 final class SearchCriteriaWithCategoryParentIdFilterFactory implements DecoratedSearchCriteriaFactory
 {
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var Context
      */
     private $shopContext;
@@ -83,14 +78,13 @@ final class SearchCriteriaWithCategoryParentIdFilterFactory implements Decorated
      * @param RequestStack $requestStack
      */
     public function __construct(
-        Configuration $configuration,
+        private Configuration $configuration,
         Context $shopContext,
         FeatureInterface $multistoreFeature,
         MultistoreContextCheckerInterface $multistoreContextChecker,
         $contextShopCategoryId,
         RequestStack $requestStack
     ) {
-        $this->configuration = $configuration;
         $this->shopContext = $shopContext;
         $this->multistoreFeature = $multistoreFeature;
         $this->multistoreContextChecker = $multistoreContextChecker;

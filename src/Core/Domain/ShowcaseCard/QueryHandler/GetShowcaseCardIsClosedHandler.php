@@ -39,21 +39,15 @@ use PrestaShop\PrestaShop\Core\Domain\ShowcaseCard\Query\GetShowcaseCardIsClosed
 final class GetShowcaseCardIsClosedHandler implements GetShowcaseCardIsClosedHandlerInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-    /**
      * @var ConfigurationMap
      */
     private $configurationMap;
 
     /**
-     * @param ConfigurationInterface $configuration
      * @param ConfigurationMap $configurationMap
      */
-    public function __construct(ConfigurationInterface $configuration, ConfigurationMap $configurationMap)
+    public function __construct(private ConfigurationInterface $configuration, ConfigurationMap $configurationMap)
     {
-        $this->configuration = $configuration;
         $this->configurationMap = $configurationMap;
     }
 

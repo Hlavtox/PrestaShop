@@ -97,7 +97,7 @@ class RetailPriceType extends TranslatorAwareType
     protected $contextCountryId;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         Locale $contextLocale,
         Currency $defaultCurrency,

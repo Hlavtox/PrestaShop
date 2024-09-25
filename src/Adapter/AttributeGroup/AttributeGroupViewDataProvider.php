@@ -45,18 +45,11 @@ final class AttributeGroupViewDataProvider implements AttributeGroupViewDataProv
     private $contextLangId;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @param int $contextLangId
-     * @param ConfigurationInterface $configuration
      */
-    public function __construct($contextLangId, ConfigurationInterface $configuration)
+    public function __construct($contextLangId, private ConfigurationInterface $configuration)
     {
         $this->contextLangId = $contextLangId;
-        $this->configuration = $configuration;
     }
 
     /**

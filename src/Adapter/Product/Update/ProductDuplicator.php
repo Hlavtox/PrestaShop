@@ -84,11 +84,6 @@ class ProductDuplicator extends AbstractMultiShopObjectModelRepository
     private $hookDispatcher;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var StringModifierInterface
      */
     private $stringModifier;
@@ -146,7 +141,7 @@ class ProductDuplicator extends AbstractMultiShopObjectModelRepository
     public function __construct(
         ProductRepository $productRepository,
         HookDispatcherInterface $hookDispatcher,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         StringModifierInterface $stringModifier,
         Connection $connection,
         string $dbPrefix,
@@ -161,7 +156,6 @@ class ProductDuplicator extends AbstractMultiShopObjectModelRepository
     ) {
         $this->productRepository = $productRepository;
         $this->hookDispatcher = $hookDispatcher;
-        $this->translator = $translator;
         $this->stringModifier = $stringModifier;
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;

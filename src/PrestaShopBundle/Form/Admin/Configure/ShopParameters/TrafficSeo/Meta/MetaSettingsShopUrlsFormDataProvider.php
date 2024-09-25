@@ -45,11 +45,6 @@ final class MetaSettingsShopUrlsFormDataProvider implements FormDataProviderInte
     private $shopUrlsDataConfiguration;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var Validate
      */
     private $validate;
@@ -58,16 +53,14 @@ final class MetaSettingsShopUrlsFormDataProvider implements FormDataProviderInte
      * MetaFormDataProvider constructor.
      *
      * @param DataConfigurationInterface $shopUrlsDataConfiguration
-     * @param TranslatorInterface $translator
      * @param Validate $validate
      */
     public function __construct(
         DataConfigurationInterface $shopUrlsDataConfiguration,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         Validate $validate
     ) {
         $this->shopUrlsDataConfiguration = $shopUrlsDataConfiguration;
-        $this->translator = $translator;
         $this->validate = $validate;
     }
 

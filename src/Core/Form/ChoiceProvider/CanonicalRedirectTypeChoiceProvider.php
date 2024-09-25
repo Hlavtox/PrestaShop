@@ -36,18 +36,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class CanonicalRedirectTypeChoiceProvider implements FormChoiceProviderInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * CanonicalRedirectTypeChoiceProvider constructor.
      *
-     * @param TranslatorInterface $translator
      */
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(private TranslatorInterface $translator)
     {
-        $this->translator = $translator;
     }
 
     /**

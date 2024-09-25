@@ -45,12 +45,11 @@ class VisibilityType extends TranslatorAwareType
     private $productVisibilityChoiceProvider;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param FormChoiceProviderInterface&FormChoiceAttributeProviderInterface $productVisibilityChoiceProvider
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         $productVisibilityChoiceProvider
     ) {

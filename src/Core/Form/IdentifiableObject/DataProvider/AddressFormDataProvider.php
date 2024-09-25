@@ -37,23 +37,10 @@ use PrestaShop\PrestaShop\Core\Domain\Address\QueryResult\EditableCustomerAddres
 final class AddressFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
-     * @var int
-     */
-    private $defaultCountryId;
-
-    /**
-     * @param CommandBusInterface $queryBus
      * @param int $defaultCountryId
      */
-    public function __construct(CommandBusInterface $queryBus, int $defaultCountryId)
+    public function __construct(private CommandBusInterface $queryBus, private int $defaultCountryId)
     {
-        $this->queryBus = $queryBus;
-        $this->defaultCountryId = $defaultCountryId;
     }
 
     /**

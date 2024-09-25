@@ -40,19 +40,12 @@ final class ProfileFormDataProvider implements FormDataProviderInterface
      */
     private $defaultAvatarUrl;
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
-     * @param CommandBusInterface $queryBus
      * @param string $defaultAvatarUrl
      */
     public function __construct(
-        CommandBusInterface $queryBus,
+        private CommandBusInterface $queryBus,
         string $defaultAvatarUrl
     ) {
-        $this->queryBus = $queryBus;
         $this->defaultAvatarUrl = $defaultAvatarUrl;
     }
 

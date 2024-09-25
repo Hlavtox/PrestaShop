@@ -35,17 +35,9 @@ use PrestaShop\PrestaShop\Core\Domain\SqlManagement\Query\GetSqlRequestForEditin
  */
 final class SqlRequestFormDataProvider implements FormDataProviderInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
-     * @param CommandBusInterface $queryBus
-     */
-    public function __construct(CommandBusInterface $queryBus)
-    {
-        $this->queryBus = $queryBus;
+    public function __construct(
+        private CommandBusInterface $queryBus
+    ) {
     }
 
     /**

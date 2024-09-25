@@ -44,22 +44,16 @@ class OrderPreferencesGeneralFormDataProvider implements FormDataProviderInterfa
     private $generalConfiguration;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var CMSDataProvider
      */
     private $cmsDataProvider;
 
     public function __construct(
         GeneralConfiguration $generalConfiguration,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         CMSDataProvider $cmsDataProvider
     ) {
         $this->generalConfiguration = $generalConfiguration;
-        $this->translator = $translator;
         $this->cmsDataProvider = $cmsDataProvider;
     }
 

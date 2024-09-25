@@ -36,11 +36,6 @@ use PrestaShop\PrestaShop\Core\Configuration\DataConfigurationInterface;
 class DebugModeConfiguration implements DataConfigurationInterface
 {
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var DebugMode Debug mode manager
      */
     private $debugMode;
@@ -69,13 +64,12 @@ class DebugModeConfiguration implements DataConfigurationInterface
      */
     public function __construct(
         DebugMode $debugMode,
-        Configuration $configuration,
+        private Configuration $configuration,
         $configDefinesPath,
         ClassIndexCacheClearer $classIndexCacheClearer,
         DebugProfiling $debugProfiling
     ) {
         $this->debugMode = $debugMode;
-        $this->configuration = $configuration;
         $this->configDefinesPath = $configDefinesPath;
         $this->classIndexCacheClearer = $classIndexCacheClearer;
         $this->debugProfiling = $debugProfiling;

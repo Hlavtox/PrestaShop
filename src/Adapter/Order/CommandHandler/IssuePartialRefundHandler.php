@@ -50,11 +50,6 @@ use Validate;
 final class IssuePartialRefundHandler extends AbstractOrderCommandHandler implements IssuePartialRefundHandlerInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var OrderRefundCalculator
      */
     private $orderRefundCalculator;
@@ -80,7 +75,6 @@ final class IssuePartialRefundHandler extends AbstractOrderCommandHandler implem
     private $contextStateManager;
 
     /**
-     * @param ConfigurationInterface $configuration
      * @param OrderRefundCalculator $orderRefundCalculator
      * @param OrderSlipCreator $orderSlipCreator
      * @param VoucherGenerator $voucherGenerator
@@ -88,14 +82,13 @@ final class IssuePartialRefundHandler extends AbstractOrderCommandHandler implem
      * @param ContextStateManager $contextStateManager
      */
     public function __construct(
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         OrderRefundCalculator $orderRefundCalculator,
         OrderSlipCreator $orderSlipCreator,
         VoucherGenerator $voucherGenerator,
         OrderRefundUpdater $refundUpdater,
         ContextStateManager $contextStateManager
     ) {
-        $this->configuration = $configuration;
         $this->orderRefundCalculator = $orderRefundCalculator;
         $this->orderSlipCreator = $orderSlipCreator;
         $this->voucherGenerator = $voucherGenerator;

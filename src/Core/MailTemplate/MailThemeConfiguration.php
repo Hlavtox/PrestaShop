@@ -37,21 +37,16 @@ use PrestaShop\PrestaShop\Core\Exception\InvalidArgumentException;
  */
 final class MailThemeConfiguration implements DataConfigurationInterface
 {
-    /** @var ConfigurationInterface */
-    private $configuration;
-
     /** @var ThemeCatalogInterface */
     private $themeCatalog;
 
     /**
-     * @param ConfigurationInterface $configuration
      * @param ThemeCatalogInterface $themeCatalog
      */
     public function __construct(
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         ThemeCatalogInterface $themeCatalog
     ) {
-        $this->configuration = $configuration;
         $this->themeCatalog = $themeCatalog;
     }
 

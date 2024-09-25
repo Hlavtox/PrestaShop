@@ -38,16 +38,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 final class LanguageFormDataHandler implements FormDataHandlerInterface
 {
     /**
-     * @var CommandBusInterface
      */
-    private $bus;
-
-    /**
-     * @param CommandBusInterface $bus
-     */
-    public function __construct(CommandBusInterface $bus)
+    public function __construct(private CommandBusInterface $bus)
     {
-        $this->bus = $bus;
     }
 
     /**

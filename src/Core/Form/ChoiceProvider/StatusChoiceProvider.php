@@ -35,18 +35,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class StatusChoiceProvider implements FormChoiceProviderInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * StatusChoiceProvider constructor.
      *
-     * @param TranslatorInterface $translator
      */
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(private TranslatorInterface $translator)
     {
-        $this->translator = $translator;
     }
 
     /**

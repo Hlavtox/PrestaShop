@@ -43,12 +43,11 @@ class ProductAttachmentsType extends TranslatorAwareType
     private $urlGenerator;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param UrlGeneratorInterface $urlGenerator
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         UrlGeneratorInterface $urlGenerator
     ) {

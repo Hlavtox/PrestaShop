@@ -61,13 +61,12 @@ class AddOrderCartRuleType extends AbstractType
      * @param FormChoiceProviderInterface $orderDiscountTypeChoiceProvider
      * @param ConfigurableFormChoiceProviderInterface $orderInvoiceByIdChoiceProvider
      * @param int $contextLangId
-     * @param TranslatorInterface $translator
      */
     public function __construct(
         FormChoiceProviderInterface $orderDiscountTypeChoiceProvider,
         ConfigurableFormChoiceProviderInterface $orderInvoiceByIdChoiceProvider,
         int $contextLangId,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->orderDiscountTypeChoiceProvider = $orderDiscountTypeChoiceProvider;
         $this->orderInvoiceByIdChoiceProvider = $orderInvoiceByIdChoiceProvider;

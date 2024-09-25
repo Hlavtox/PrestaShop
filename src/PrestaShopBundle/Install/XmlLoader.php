@@ -98,8 +98,6 @@ class XmlLoader
 
     public function setTranslator($translator)
     {
-        $this->translator = $translator;
-
         return $translator;
     }
 

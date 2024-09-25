@@ -55,14 +55,13 @@ class StockType extends TranslatorAwareType
     protected $employeeIsoCode;
 
     /**
-     * @param TranslatorInterface $translator
      * @param RouterInterface $router,
      * @param array $locales
      * @param FormChoiceProviderInterface $packStockTypeChoiceProvider
      * @param string $employeeIsoCode
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         FormChoiceProviderInterface $packStockTypeChoiceProvider,
         RouterInterface $router,

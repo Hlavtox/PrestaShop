@@ -57,26 +57,19 @@ final class CustomerCartGridDataFactoryDecorator implements GridDataFactoryInter
     private $contextCurrencyIsoCode;
 
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
      * @param GridDataFactoryInterface $customerCartDoctrineGridDataFactory
      * @param LocaleInterface $locale
      * @param string $contextCurrencyIsoCode
-     * @param CommandBusInterface $queryBus
      */
     public function __construct(
         GridDataFactoryInterface $customerCartDoctrineGridDataFactory,
         LocaleInterface $locale,
         $contextCurrencyIsoCode,
-        CommandBusInterface $queryBus
+        private CommandBusInterface $queryBus
     ) {
         $this->customerCartDoctrineGridDataFactory = $customerCartDoctrineGridDataFactory;
         $this->locale = $locale;
         $this->contextCurrencyIsoCode = $contextCurrencyIsoCode;
-        $this->queryBus = $queryBus;
     }
 
     /**

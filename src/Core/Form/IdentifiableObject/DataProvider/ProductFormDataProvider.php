@@ -57,11 +57,6 @@ use PrestaShop\PrestaShop\Core\Util\DateTime\DateTime;
 class ProductFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
      * @var int
      */
     private $contextLangId;
@@ -77,11 +72,6 @@ class ProductFormDataProvider implements FormDataProviderInterface
     private $contextShopId;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var FeaturesChoiceProvider
      */
     private $featuresChoiceProvider;
@@ -92,22 +82,18 @@ class ProductFormDataProvider implements FormDataProviderInterface
     private $featureNames = null;
 
     /**
-     * @param CommandBusInterface $queryBus
-     * @param ConfigurationInterface $configuration
      * @param int $contextLangId
      * @param int $defaultShopId
      * @param int|null $contextShopId
      */
     public function __construct(
-        CommandBusInterface $queryBus,
-        ConfigurationInterface $configuration,
+        private CommandBusInterface $queryBus,
+        private ConfigurationInterface $configuration,
         int $contextLangId,
         int $defaultShopId,
         ?int $contextShopId,
         FeaturesChoiceProvider $featuresChoiceProvider
     ) {
-        $this->queryBus = $queryBus;
-        $this->configuration = $configuration;
         $this->contextLangId = $contextLangId;
         $this->defaultShopId = $defaultShopId;
         $this->contextShopId = $contextShopId;

@@ -48,23 +48,9 @@ use Validate;
 final class UpdateCartDeliverySettingsHandler extends AbstractCartHandler implements UpdateCartDeliverySettingsHandlerInterface
 {
     /**
-     * @var TranslatorInterface
      */
-    private $translator;
-
-    /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param TranslatorInterface $translator
-     * @param ConfigurationInterface $configuration
-     */
-    public function __construct(TranslatorInterface $translator, ConfigurationInterface $configuration)
+    public function __construct(private TranslatorInterface $translator, private ConfigurationInterface $configuration)
     {
-        $this->translator = $translator;
-        $this->configuration = $configuration;
     }
 
     /**

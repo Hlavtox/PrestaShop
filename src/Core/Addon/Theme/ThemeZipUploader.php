@@ -36,16 +36,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 final class ThemeZipUploader implements ThemeUploaderInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     /**

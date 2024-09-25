@@ -61,11 +61,6 @@ class ProductQueryBuilder extends AbstractDoctrineQueryBuilder
     private $filterApplicator;
 
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var ShopGroupRepository
      */
     private $shopGroupRepository;
@@ -76,14 +71,13 @@ class ProductQueryBuilder extends AbstractDoctrineQueryBuilder
         DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator,
         int $contextLanguageId,
         DoctrineFilterApplicatorInterface $filterApplicator,
-        Configuration $configuration,
+        private Configuration $configuration,
         ShopGroupRepository $shopGroupRepository
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->searchCriteriaApplicator = $searchCriteriaApplicator;
         $this->contextLanguageId = $contextLanguageId;
         $this->filterApplicator = $filterApplicator;
-        $this->configuration = $configuration;
         $this->shopGroupRepository = $shopGroupRepository;
     }
 

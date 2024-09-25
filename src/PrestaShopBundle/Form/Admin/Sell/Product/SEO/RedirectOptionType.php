@@ -68,7 +68,6 @@ class RedirectOptionType extends TranslatorAwareType
     private $homeCategoryId;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param RouterInterface $router
      * @param DataTransformerInterface $targetTransformer
@@ -77,7 +76,7 @@ class RedirectOptionType extends TranslatorAwareType
      * @param int $homeCategoryId
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         RouterInterface $router,
         DataTransformerInterface $targetTransformer,

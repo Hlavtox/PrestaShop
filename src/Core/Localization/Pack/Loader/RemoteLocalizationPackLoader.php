@@ -35,22 +35,15 @@ use PrestaShop\PrestaShop\Core\Foundation\Version;
 final class RemoteLocalizationPackLoader extends AbstractLocalizationPackLoader
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var Version
      */
     private $version;
 
     /**
-     * @param ConfigurationInterface $configuration
      * @param Version $version
      */
     public function __construct(ConfigurationInterface $configuration, Version $version)
     {
-        $this->configuration = $configuration;
         $this->version = $version;
     }
 

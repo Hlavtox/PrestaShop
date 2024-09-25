@@ -37,23 +37,10 @@ use PrestaShop\PrestaShop\Core\Util\DateTime\DateTime as DateTimeUtil;
 
 class CartRuleFormDataProvider implements FormDataProviderInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
-     * @var ShopConfigurationInterface
-     */
-    private $configuration;
-
     public function __construct(
-        CommandBusInterface $queryBus,
+        private CommandBusInterface $queryBus,
         ShopConfigurationInterface $configuration
-    ) {
-        $this->queryBus = $queryBus;
-        $this->configuration = $configuration;
-    }
+    ) {    }
 
     /**
      * {@inheritDoc}

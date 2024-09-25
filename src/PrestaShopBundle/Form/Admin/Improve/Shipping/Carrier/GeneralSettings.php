@@ -46,7 +46,7 @@ class GeneralSettings extends TranslatorAwareType
     private const MAX_IMAGE_SIZE_IN_BYTES = 8 * 1000000;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         private readonly GroupByIdChoiceProvider $groupByIdChoiceProvider
     ) {

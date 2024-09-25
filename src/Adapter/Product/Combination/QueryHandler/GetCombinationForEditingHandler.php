@@ -110,11 +110,6 @@ class GetCombinationForEditingHandler implements GetCombinationForEditingHandler
     private $taxComputer;
 
     /**
-     * @var ShopConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var ProductImagePathFactory
      */
     private $productImageUrlFactory;
@@ -154,7 +149,6 @@ class GetCombinationForEditingHandler implements GetCombinationForEditingHandler
         $this->numberExtractor = $numberExtractor;
         $this->taxComputer = $taxComputer;
         $this->contextLanguageId = $contextLanguageId;
-        $this->configuration = $configuration;
         $this->productImageUrlFactory = $productImageUrlFactory;
     }
 

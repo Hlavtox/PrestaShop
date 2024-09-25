@@ -60,14 +60,13 @@ class DescriptionType extends TranslatorAwareType
     private $shortDescriptionMaxLength;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param RouterInterface $router
      * @param string $employeeIsoCode
      * @param int $shortDescriptionMaxLength
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         RouterInterface $router,
         string $employeeIsoCode,

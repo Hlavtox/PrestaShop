@@ -39,17 +39,10 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class ProductImageFormDataHandler implements FormDataHandlerInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $bus;
-
-    /**
-     * @param CommandBusInterface $bus
      */
     public function __construct(
-        CommandBusInterface $bus
+        private CommandBusInterface $bus
     ) {
-        $this->bus = $bus;
     }
 
     /**

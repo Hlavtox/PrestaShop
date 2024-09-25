@@ -51,7 +51,7 @@ final class UrlSchemaDataConfiguration extends AbstractMultistoreConfiguration
      * @param FeatureInterface $multistoreFeature
      * @param array $rules
      */
-    public function __construct(Configuration $configuration, Context $shopContext, FeatureInterface $multistoreFeature, array $rules)
+    public function __construct(private Configuration $configuration, Context $shopContext, FeatureInterface $multistoreFeature, array $rules)
     {
         parent::__construct($configuration, $shopContext, $multistoreFeature);
 

@@ -72,7 +72,6 @@ abstract class AbstractInstall
 
     public function setTranslator($translator)
     {
-        $this->translator = $translator;
 
         return $this;
     }

@@ -45,11 +45,6 @@ class HelpProvider implements UrlProviderInterface
     private $legacyContext;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var RouterInterface
      */
     private $router;
@@ -61,12 +56,11 @@ class HelpProvider implements UrlProviderInterface
 
     public function __construct(
         LegacyContext $legacyContext,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         RouterInterface $router,
         Documentation $documentation
     ) {
         $this->legacyContext = $legacyContext;
-        $this->translator = $translator;
         $this->router = $router;
         $this->documentation = $documentation;
     }

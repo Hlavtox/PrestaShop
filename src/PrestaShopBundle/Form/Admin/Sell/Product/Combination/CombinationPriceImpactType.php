@@ -90,7 +90,7 @@ class CombinationPriceImpactType extends TranslatorAwareType
     protected $contextLocale;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         Currency $defaultCurrency,
         string $weightUnit,

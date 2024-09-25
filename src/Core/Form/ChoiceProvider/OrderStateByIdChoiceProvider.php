@@ -54,26 +54,19 @@ final class OrderStateByIdChoiceProvider implements FormChoiceProviderInterface,
     private $colorBrightnessCalculator;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @param int $langId language ID
      * @param OrderStateDataProviderInterface $orderStateDataProvider
      * @param ColorBrightnessCalculator $colorBrightnessCalculator
-     * @param TranslatorInterface $translator
      */
     public function __construct(
         $langId,
         OrderStateDataProviderInterface $orderStateDataProvider,
         ColorBrightnessCalculator $colorBrightnessCalculator,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->langId = $langId;
         $this->orderStateDataProvider = $orderStateDataProvider;
         $this->colorBrightnessCalculator = $colorBrightnessCalculator;
-        $this->translator = $translator;
     }
 
     /**

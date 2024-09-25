@@ -39,16 +39,9 @@ use PrestaShop\PrestaShop\Core\Encoding\CharsetEncoding;
 final class GetSqlRequestSettingsHandler implements GetSqlRequestSettingsHandlerInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     /**

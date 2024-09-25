@@ -66,12 +66,6 @@ class SEOType extends TranslatorAwareType
     private $legacyContext;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param RouterInterface $router
      * @param bool $friendlyUrlEnabled
@@ -79,20 +73,19 @@ class SEOType extends TranslatorAwareType
      * @param LegacyContext $legacyContext
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         RouterInterface $router,
         bool $friendlyUrlEnabled,
         bool $forceFriendlyUrl,
         LegacyContext $legacyContext,
-        ConfigurationInterface $configuration
+        private ConfigurationInterface $configuration
     ) {
         parent::__construct($translator, $locales);
         $this->router = $router;
         $this->friendlyUrlEnabled = $friendlyUrlEnabled;
         $this->forceFriendlyUrl = $forceFriendlyUrl;
         $this->legacyContext = $legacyContext;
-        $this->configuration = $configuration;
     }
 
     /**

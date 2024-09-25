@@ -52,20 +52,13 @@ final class DeleteCategoryCoverImageHandler implements DeleteCategoryCoverImageH
     private $filesystem;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @param Filesystem $filesystem
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(
         Filesystem $filesystem,
-        ConfigurationInterface $configuration
+        private ConfigurationInterface $configuration
     ) {
         $this->filesystem = $filesystem;
-        $this->configuration = $configuration;
     }
 
     /**

@@ -59,14 +59,13 @@ class ShippingType extends TranslatorAwareType
     private $deliveryTimeNoteTypesProvider;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param string $currencyIsoCode
      * @param FormChoiceProviderInterface $carrierChoiceProvider
      * @param FormChoiceProviderInterface $additionalDeliveryTimeNoteTypesProvider
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         string $currencyIsoCode,
         FormChoiceProviderInterface $carrierChoiceProvider,

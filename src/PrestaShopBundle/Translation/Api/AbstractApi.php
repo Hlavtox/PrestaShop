@@ -37,7 +37,6 @@ abstract class AbstractApi
 
     public function setTranslator(TranslatorInterface $translator)
     {
-        $this->translator = $translator;
     }
 
     public function getFormattedTranslations()

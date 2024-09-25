@@ -42,24 +42,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class AddressZipCodeValidator extends ConstraintValidator
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var CountryZipCodeRequirementsProviderInterface
      */
     private $requirementsProvider;
 
     /**
-     * @param TranslatorInterface $translator
      * @param CountryZipCodeRequirementsProviderInterface $requirementsProvider
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         CountryZipCodeRequirementsProviderInterface $requirementsProvider
     ) {
-        $this->translator = $translator;
         $this->requirementsProvider = $requirementsProvider;
     }
 

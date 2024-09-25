@@ -41,12 +41,11 @@ class CombinationImagesChoiceType extends TranslatorAwareType
     private $imagesChoiceProvider;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array<int, array<string, mixed>> $locales
      * @param ConfigurableFormChoiceProviderInterface $imagesChoiceProvider
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         ConfigurableFormChoiceProviderInterface $imagesChoiceProvider
     ) {

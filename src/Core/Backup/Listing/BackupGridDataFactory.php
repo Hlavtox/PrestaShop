@@ -47,11 +47,6 @@ final class BackupGridDataFactory implements GridDataFactoryInterface
     private $backupRepository;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var string
      */
     private $languageDateTimeFormat;
@@ -64,17 +59,15 @@ final class BackupGridDataFactory implements GridDataFactoryInterface
     /**
      * @param BackupRepositoryInterface $backupRepository
      * @param BackupComparatorInterface $backupByDateComparator
-     * @param TranslatorInterface $translator
      * @param string $languageDateTimeFormat
      */
     public function __construct(
         BackupRepositoryInterface $backupRepository,
         BackupComparatorInterface $backupByDateComparator,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         $languageDateTimeFormat
     ) {
         $this->backupRepository = $backupRepository;
-        $this->translator = $translator;
         $this->languageDateTimeFormat = $languageDateTimeFormat;
         $this->backupByDateComparator = $backupByDateComparator;
     }

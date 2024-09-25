@@ -37,16 +37,9 @@ use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 class GeneralConfiguration implements DataConfigurationInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     /**

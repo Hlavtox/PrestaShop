@@ -36,15 +36,9 @@ use PrestaShop\PrestaShop\Core\Domain\OrderState\QueryResult\EditableOrderState;
  */
 final class OrderStateFormDataProvider implements FormDataProviderInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
     public function __construct(
-        CommandBusInterface $queryBus
+        private CommandBusInterface $queryBus
     ) {
-        $this->queryBus = $queryBus;
     }
 
     /**

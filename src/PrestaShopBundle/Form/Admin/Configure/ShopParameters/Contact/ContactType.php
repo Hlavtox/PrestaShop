@@ -60,13 +60,12 @@ class ContactType extends TranslatorAwareType
     private $singleDefaultLanguageArrayToFilledArrayDataTransformer;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param DataTransformerInterface $singleDefaultLanguageArrayToFilledArrayDataTransformer
      * @param bool $isShopFeatureEnabled
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         DataTransformerInterface $singleDefaultLanguageArrayToFilledArrayDataTransformer,
         $isShopFeatureEnabled

@@ -27,20 +27,19 @@
 namespace PrestaShop\PrestaShop\Core\Foundation\Database;
 
 use PrestaShop\PrestaShop\Adapter\EntityMetaDataRetriever;
+use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 
 class EntityManager
 {
     private $db;
-    private $configuration;
 
     private $entityMetaData = [];
 
     public function __construct(
         DatabaseInterface $db,
-        \PrestaShop\PrestaShop\Core\ConfigurationInterface $configuration
+        private ConfigurationInterface $configuration
     ) {
         $this->db = $db;
-        $this->configuration = $configuration;
     }
 
     /**

@@ -78,11 +78,6 @@ class CustomerType extends TranslatorAwareType
     private $isPartnerOffersEnabled;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var FormCloner
      */
     protected $formCloner;
@@ -92,30 +87,27 @@ class CustomerType extends TranslatorAwareType
     private $groupByIdChoiceProvider;
 
     /**
-     * @param TranslatorInterface $translator
      * @param GroupByIdChoiceProvider $groupByIdChoiceProvider
      * @param array $locales
      * @param array $riskChoices
      * @param bool $isB2bFeatureEnabled
      * @param bool $isPartnerOffersEnabled
-     * @param ConfigurationInterface $configuration
      * @param FormCloner $formCloner
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         GroupByIdChoiceProvider $groupByIdChoiceProvider,
         array $locales,
         array $riskChoices,
         $isB2bFeatureEnabled,
         $isPartnerOffersEnabled,
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         FormCloner $formCloner
     ) {
         parent::__construct($translator, $locales);
         $this->isB2bFeatureEnabled = $isB2bFeatureEnabled;
         $this->riskChoices = $riskChoices;
         $this->isPartnerOffersEnabled = $isPartnerOffersEnabled;
-        $this->configuration = $configuration;
         $this->formCloner = $formCloner;
         $this->groupByIdChoiceProvider = $groupByIdChoiceProvider;
     }

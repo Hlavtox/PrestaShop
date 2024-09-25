@@ -52,13 +52,12 @@ class QuantityType extends TranslatorAwareType
     private $stockManagementEnabled;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param RouterInterface $router
      * @param bool $stockManagementEnabled
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         RouterInterface $router,
         bool $stockManagementEnabled

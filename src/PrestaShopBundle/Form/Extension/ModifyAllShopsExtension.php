@@ -61,11 +61,6 @@ class ModifyAllShopsExtension extends AbstractTypeExtension
     private $multistoreContextChecker;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var string
      */
     private $checkboxLabel;
@@ -73,11 +68,10 @@ class ModifyAllShopsExtension extends AbstractTypeExtension
     public function __construct(
         FeatureInterface $multiStoreFeature,
         MultistoreContextCheckerInterface $multistoreContextChecker,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->multiStoreFeature = $multiStoreFeature;
         $this->multistoreContextChecker = $multistoreContextChecker;
-        $this->translator = $translator;
     }
 
     /**

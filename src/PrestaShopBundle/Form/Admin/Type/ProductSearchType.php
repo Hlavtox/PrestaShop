@@ -49,7 +49,7 @@ class ProductSearchType extends TranslatorAwareType
     private $languageIsoCode;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         RouterInterface $router,
         string $employeeIsoCode

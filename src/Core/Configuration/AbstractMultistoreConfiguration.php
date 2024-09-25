@@ -38,11 +38,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 abstract class AbstractMultistoreConfiguration implements DataConfigurationInterface
 {
     /**
-     * @var Configuration
-     */
-    protected $configuration;
-
-    /**
      * @var Context
      */
     protected $shopContext;
@@ -59,9 +54,8 @@ abstract class AbstractMultistoreConfiguration implements DataConfigurationInter
      * @param Context $shopContext
      * @param FeatureInterface $multistoreFeature
      */
-    public function __construct(Configuration $configuration, Context $shopContext, FeatureInterface $multistoreFeature)
+    public function __construct(protected Configuration $configuration, Context $shopContext, FeatureInterface $multistoreFeature)
     {
-        $this->configuration = $configuration;
         $this->shopContext = $shopContext;
         $this->multistoreFeature = $multistoreFeature;
     }

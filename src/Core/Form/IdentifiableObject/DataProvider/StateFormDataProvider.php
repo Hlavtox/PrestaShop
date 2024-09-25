@@ -38,25 +38,12 @@ use PrestaShop\PrestaShop\Core\Domain\State\QueryResult\EditableState;
 class StateFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
-     * @var int
-     */
-    private $defaultCountryId;
-
-    /**
-     * @param CommandBusInterface $queryBus
      * @param int $defaultCountryId
      */
     public function __construct(
-        CommandBusInterface $queryBus,
-        int $defaultCountryId
+        private CommandBusInterface $queryBus,
+        private int $defaultCountryId
     ) {
-        $this->queryBus = $queryBus;
-        $this->defaultCountryId = $defaultCountryId;
     }
 
     /**

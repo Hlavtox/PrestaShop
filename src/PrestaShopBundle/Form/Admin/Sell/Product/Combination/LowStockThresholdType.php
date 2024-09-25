@@ -43,7 +43,7 @@ class LowStockThresholdType extends TranslatorAwareType
     private $router;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         RouterInterface $router
     ) {

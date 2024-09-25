@@ -62,14 +62,13 @@ class HeaderType extends TranslatorAwareType
     private $toolbarButtonsProvider;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param bool $stockManagementEnabled
      * @param bool $isEcotaxEnabled
      * @param ToolbarButtonsProviderInterface $toolbarButtonsProvider
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         bool $stockManagementEnabled,
         bool $isEcotaxEnabled,

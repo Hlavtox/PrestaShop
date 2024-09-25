@@ -42,11 +42,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ProductToolbarButtonsProvider implements ToolbarButtonsProviderInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var RouterInterface
      */
     private $router;
@@ -67,13 +62,12 @@ class ProductToolbarButtonsProvider implements ToolbarButtonsProviderInterface
     private $legacyContext;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         RouterInterface $router,
         HelpProvider $helpUrlProvider,
         ModuleDataProvider $moduleDataProvider,
         LegacyContext $legacyContext
     ) {
-        $this->translator = $translator;
         $this->router = $router;
         $this->helpUrlProvider = $helpUrlProvider;
         $this->moduleDataProvider = $moduleDataProvider;

@@ -36,10 +36,6 @@ use ZipArchive;
 class ThemeExporter
 {
     /**
-     * @var ConfigurationInterface
-     */
-    protected $configuration;
-    /**
      * @var Filesystem
      */
     protected $fileSystem;
@@ -53,12 +49,11 @@ class ThemeExporter
     protected $translationsExporter;
 
     public function __construct(
-        ConfigurationInterface $configuration,
+        protected ConfigurationInterface $configuration,
         Filesystem $fileSystem,
         LangRepository $langRepository,
         TranslationsExporter $translationsExporter
     ) {
-        $this->configuration = $configuration;
         $this->fileSystem = $fileSystem;
         $this->langRepository = $langRepository;
         $this->translationsExporter = $translationsExporter;

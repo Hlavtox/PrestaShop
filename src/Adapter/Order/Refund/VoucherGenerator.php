@@ -50,20 +50,13 @@ class VoucherGenerator
     private $locale;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @param Locale $locale
-     * @param TranslatorInterface $translator
      */
     public function __construct(
         Locale $locale,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->locale = $locale;
-        $this->translator = $translator;
     }
 
     /**

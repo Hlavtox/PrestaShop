@@ -55,13 +55,12 @@ class AvailabilityType extends TranslatorAwareType
     private $router;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param FormChoiceProviderInterface $outOfStockTypeChoiceProvider
      * @param RouterInterface $router
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         FormChoiceProviderInterface $outOfStockTypeChoiceProvider,
         RouterInterface $router

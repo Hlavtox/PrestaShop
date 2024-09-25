@@ -44,11 +44,6 @@ final class ProductLightQueryBuilder extends AbstractDoctrineQueryBuilder
     private $searchCriteriaApplicator;
 
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var ProductQueryBuilder
      */
     private $productQueryBuilder;
@@ -57,12 +52,11 @@ final class ProductLightQueryBuilder extends AbstractDoctrineQueryBuilder
         Connection $connection,
         string $dbPrefix,
         DoctrineSearchCriteriaApplicatorInterface $searchCriteriaApplicator,
-        Configuration $configuration,
+        private Configuration $configuration,
         ProductQueryBuilder $productQueryBuilder
     ) {
         parent::__construct($connection, $dbPrefix);
         $this->searchCriteriaApplicator = $searchCriteriaApplicator;
-        $this->configuration = $configuration;
         $this->productQueryBuilder = $productQueryBuilder;
     }
 

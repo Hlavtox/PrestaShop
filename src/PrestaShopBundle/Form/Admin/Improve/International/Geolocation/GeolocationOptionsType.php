@@ -45,26 +45,18 @@ class GeolocationOptionsType extends TranslatorAwareType
     private $countryChoices;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $countryChoices
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $countryChoices,
-        ConfigurationInterface $configuration
+        private ConfigurationInterface $configuration
     ) {
         parent::__construct($translator, $locales);
 
         $this->countryChoices = $countryChoices;
-        $this->configuration = $configuration;
     }
 
     /**

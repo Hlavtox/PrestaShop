@@ -52,12 +52,11 @@ class BulkCombinationStockType extends TranslatorAwareType
     private $stockManagementEnabled;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param bool $stockManagementEnabled
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         bool $stockManagementEnabled
     ) {

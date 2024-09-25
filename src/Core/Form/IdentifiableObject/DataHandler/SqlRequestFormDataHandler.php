@@ -37,16 +37,9 @@ use PrestaShop\PrestaShop\Core\Domain\SqlManagement\ValueObject\SqlRequestId;
 final class SqlRequestFormDataHandler implements FormDataHandlerInterface
 {
     /**
-     * @var CommandBusInterface
      */
-    private $commandBus;
-
-    /**
-     * @param CommandBusInterface $bus
-     */
-    public function __construct(CommandBusInterface $bus)
+    public function __construct(private CommandBusInterface $commandBus)
     {
-        $this->commandBus = $bus;
     }
 
     /**

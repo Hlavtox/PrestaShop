@@ -49,7 +49,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class AttributeGroupType extends TranslatorAwareType
 {
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         protected FeatureInterface $multistoreFeature
     ) {

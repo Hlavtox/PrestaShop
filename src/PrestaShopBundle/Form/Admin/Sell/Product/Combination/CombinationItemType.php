@@ -71,7 +71,7 @@ class CombinationItemType extends TranslatorAwareType
     private $contextShopId;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         Currency $defaultCurrency,
         FeatureInterface $multiStoreFeature,

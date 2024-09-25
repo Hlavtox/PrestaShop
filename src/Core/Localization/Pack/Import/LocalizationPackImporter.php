@@ -51,26 +51,19 @@ final class LocalizationPackImporter implements LocalizationPackImporterInterfac
     private $localizationPackFactory;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @param LocalizationPackLoaderInterface $remoteLocalizationPackLoader
      * @param LocalizationPackLoaderInterface $localLocalizationPackLoader
      * @param LocalizationPackFactoryInterface $localizationPackFactory
-     * @param TranslatorInterface $translator
      */
     public function __construct(
         LocalizationPackLoaderInterface $remoteLocalizationPackLoader,
         LocalizationPackLoaderInterface $localLocalizationPackLoader,
         LocalizationPackFactoryInterface $localizationPackFactory,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->remoteLocalizationPackLoader = $remoteLocalizationPackLoader;
         $this->localLocalizationPackLoader = $localLocalizationPackLoader;
         $this->localizationPackFactory = $localizationPackFactory;
-        $this->translator = $translator;
     }
 
     /**

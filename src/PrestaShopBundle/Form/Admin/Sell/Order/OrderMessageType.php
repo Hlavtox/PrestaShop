@@ -62,11 +62,10 @@ class OrderMessageType extends AbstractType
     public function __construct(
         FormChoiceProviderInterface $orderMessageNameChoiceProvider,
         ConfigurableFormChoiceProviderInterface $orderMessageChoiceProvider,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->orderMessageNameChoiceProvider = $orderMessageNameChoiceProvider;
         $this->orderMessageChoiceProvider = $orderMessageChoiceProvider;
-        $this->translator = $translator;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)

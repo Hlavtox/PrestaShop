@@ -49,11 +49,6 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 final class EmployeeFormDataHandler implements FormDataHandlerInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $bus;
-
-    /**
      * @var array
      */
     private $defaultShopAssociation;
@@ -99,7 +94,7 @@ final class EmployeeFormDataHandler implements FormDataHandlerInterface
     private $maxLength;
 
     public function __construct(
-        CommandBusInterface $bus,
+        private CommandBusInterface $bus,
         array $defaultShopAssociation,
         $superAdminProfileId,
         EmployeeFormAccessCheckerInterface $employeeFormAccessChecker,
@@ -115,7 +110,6 @@ final class EmployeeFormDataHandler implements FormDataHandlerInterface
         private readonly UserTokenManager $userTokenManager,
         private readonly CsrfTokenManagerInterface $csrfTokenManager,
     ) {
-        $this->bus = $bus;
         $this->defaultShopAssociation = $defaultShopAssociation;
         $this->superAdminProfileId = $superAdminProfileId;
         $this->employeeFormAccessChecker = $employeeFormAccessChecker;

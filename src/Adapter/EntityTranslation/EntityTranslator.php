@@ -55,11 +55,6 @@ class EntityTranslator implements EntityTranslatorInterface
     protected $db;
 
     /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
-    /**
      * @var string
      */
     protected $tableName;
@@ -72,19 +67,17 @@ class EntityTranslator implements EntityTranslatorInterface
     /**
      * @param Db $db
      * @param string $dbPrefix
-     * @param TranslatorInterface $translator
      * @param DataLangCore $dataLang
      */
     public function __construct(
         Db $db,
         string $dbPrefix,
-        TranslatorInterface $translator,
+        protected TranslatorInterface $translator,
         DataLangCore $dataLang
     ) {
         $this->dataLang = $dataLang;
         $this->db = $db;
         $this->dbPrefix = $dbPrefix;
-        $this->translator = $translator;
         $this->tableName = $this->buildTableNameFromDataLang($dataLang);
     }
 

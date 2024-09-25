@@ -62,25 +62,18 @@ final class CancelOrderProductHandler extends AbstractOrderCommandHandler implem
     private $logger;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * CancelOrderProductHandler constructor.
      *
      * @param OrderProductQuantityUpdater $orderProductQuantityUpdater
      * @param LoggerInterface $logger
-     * @param TranslatorInterface $translator
      */
     public function __construct(
         OrderProductQuantityUpdater $orderProductQuantityUpdater,
         LoggerInterface $logger,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->orderProductQuantityUpdater = $orderProductQuantityUpdater;
         $this->logger = $logger;
-        $this->translator = $translator;
     }
 
     /**

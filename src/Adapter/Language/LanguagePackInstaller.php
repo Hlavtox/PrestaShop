@@ -42,20 +42,13 @@ final class LanguagePackInstaller implements LanguagePackInstallerInterface
     private $version;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * LanguagePackInstaller constructor.
      *
-     * @param TranslatorInterface $translator
      * @param Version $version
      */
-    public function __construct(TranslatorInterface $translator, Version $version)
+    public function __construct(private TranslatorInterface $translator, Version $version)
     {
         $this->version = $version;
-        $this->translator = $translator;
     }
 
     /**

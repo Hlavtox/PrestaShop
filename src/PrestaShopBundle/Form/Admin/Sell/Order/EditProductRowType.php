@@ -50,13 +50,12 @@ class EditProductRowType extends TranslatorAwareType
     /**
      * EditProductRowType constructor.
      *
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param ConfigurableFormChoiceProviderInterface $orderInvoiceByIdChoiceProvider
      * @param int $contextLangId
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         ConfigurableFormChoiceProviderInterface $orderInvoiceByIdChoiceProvider,
         int $contextLangId

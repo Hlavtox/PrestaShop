@@ -43,18 +43,11 @@ final class CatalogPriceRuleGridDataFactory implements GridDataFactoryInterface
     private $priceRuleDataFactory;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @param GridDataFactoryInterface $priceRuleDataFactory
-     * @param TranslatorInterface $translator
      */
-    public function __construct(GridDataFactoryInterface $priceRuleDataFactory, TranslatorInterface $translator)
+    public function __construct(GridDataFactoryInterface $priceRuleDataFactory, private TranslatorInterface $translator)
     {
         $this->priceRuleDataFactory = $priceRuleDataFactory;
-        $this->translator = $translator;
     }
 
     /**

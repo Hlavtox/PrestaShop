@@ -64,11 +64,6 @@ class GetCustomerThreadForViewingHandler implements GetCustomerThreadForViewingH
     private $context;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var Locale
      */
     protected $locale;

@@ -35,16 +35,9 @@ use PrestaShop\PrestaShop\Core\Feature\FeatureInterface;
 final class B2bFeature implements FeatureInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     /**

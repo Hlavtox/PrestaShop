@@ -50,12 +50,11 @@ class TaxRulesGroupType extends TranslatorAwareType
     protected $isShopFeatureEnabled;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param bool $isShopFeatureEnabled
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         bool $isShopFeatureEnabled
     ) {

@@ -48,7 +48,7 @@ class UrlSchemaType extends TranslatorAwareType
     private $defaultRouteProvider;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         DefaultRouteProvider $defaultRouteProvider
     ) {

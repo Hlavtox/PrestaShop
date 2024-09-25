@@ -67,11 +67,6 @@ class ModuleTabRegister
     private $logger;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var Filesystem
      */
     private $filesystem;
@@ -90,7 +85,6 @@ class ModuleTabRegister
      * @param TabRepository $tabRepository
      * @param LangRepository $langRepository
      * @param LoggerInterface $logger
-     * @param TranslatorInterface $translator
      * @param Filesystem $filesystem
      * @param array $languages
      * @param Loader $routingConfigLoader
@@ -99,7 +93,7 @@ class ModuleTabRegister
         TabRepository $tabRepository,
         LangRepository $langRepository,
         LoggerInterface $logger,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         Filesystem $filesystem,
         array $languages,
         Loader $routingConfigLoader
@@ -107,7 +101,6 @@ class ModuleTabRegister
         $this->langRepository = $langRepository;
         $this->tabRepository = $tabRepository;
         $this->logger = $logger;
-        $this->translator = $translator;
         $this->filesystem = $filesystem;
         $this->languages = $languages;
         $this->routingConfigLoader = $routingConfigLoader;

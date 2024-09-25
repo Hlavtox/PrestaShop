@@ -52,13 +52,12 @@ class ImportDataConfigurationType extends TranslatorAwareType
     private $entityFieldChoices;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $dataMatchChoices
      * @param array $entityFieldChoices
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $dataMatchChoices,
         array $entityFieldChoices

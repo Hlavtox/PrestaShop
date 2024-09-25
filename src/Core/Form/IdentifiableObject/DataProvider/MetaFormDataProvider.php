@@ -36,14 +36,9 @@ use PrestaShop\PrestaShop\Core\Domain\Meta\QueryResult\EditableMeta;
  */
 final class MetaFormDataProvider implements FormDataProviderInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    public function __construct(CommandBusInterface $queryBus)
-    {
-        $this->queryBus = $queryBus;
+    public function __construct(
+        private CommandBusInterface $queryBus
+    ) {
     }
 
     /**

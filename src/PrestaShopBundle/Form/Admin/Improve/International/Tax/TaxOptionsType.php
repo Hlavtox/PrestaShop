@@ -60,14 +60,13 @@ class TaxOptionsType extends TranslatorAwareType
      *
      * Backwards compatibility break introduced in 1.7.8.0 due to extension of TranslatorAwareType
      *
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param bool $isEcotaxEnabled
      * @param FormChoiceProviderInterface $taxAddressTypeChoiceProvider
      * @param FormChoiceProviderInterface $taxRuleGroupChoiceProvider
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         bool $isEcotaxEnabled,
         FormChoiceProviderInterface $taxAddressTypeChoiceProvider,

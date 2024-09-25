@@ -31,20 +31,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ThemeValidator
 {
-    /**
-     * Translator.
-     *
-     * @var TranslatorInterface
-     */
-    private $translator;
-    private $appConfiguration;
-
     private $errors = [];
 
-    public function __construct(TranslatorInterface $translator, ConfigurationInterface $configuration)
+    public function __construct(private TranslatorInterface $translator, private ConfigurationInterface $appConfiguration)
     {
-        $this->translator = $translator;
-        $this->appConfiguration = $configuration;
     }
 
     public function getErrors($themeName)

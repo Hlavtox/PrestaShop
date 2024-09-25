@@ -40,19 +40,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class DeliveryTimeNoteTypesProvider implements FormChoiceProviderInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var RouterInterface
      */
     private $router;
-
-    /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
 
     /**
      * @var int
@@ -60,20 +50,16 @@ final class DeliveryTimeNoteTypesProvider implements FormChoiceProviderInterface
     private $langId;
 
     /**
-     * @param TranslatorInterface $translator
      * @param RouterInterface $router
-     * @param ConfigurationInterface $configuration
      * @param int $langId
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         RouterInterface $router,
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         int $langId
     ) {
-        $this->translator = $translator;
         $this->router = $router;
-        $this->configuration = $configuration;
         $this->langId = $langId;
     }
 

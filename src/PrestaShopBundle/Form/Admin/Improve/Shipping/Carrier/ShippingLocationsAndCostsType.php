@@ -45,7 +45,7 @@ use Symfony\Component\Routing\RouterInterface;
 class ShippingLocationsAndCostsType extends TranslatorAwareType
 {
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         private readonly RouterInterface $router,
         private readonly ConfigurationInterface $configuration,

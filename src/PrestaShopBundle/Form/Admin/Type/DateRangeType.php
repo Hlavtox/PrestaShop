@@ -48,23 +48,16 @@ class DateRangeType extends AbstractType
     public const DEFAULT_DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
     /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
-    /**
      * @var FormCloner
      */
     protected $formCloner;
 
     /**
-     * @param TranslatorInterface $translator
      */
     public function __construct(
-        TranslatorInterface $translator,
+        protected TranslatorInterface $translator,
         FormCloner $formCloner
     ) {
-        $this->translator = $translator;
         $this->formCloner = $formCloner;
     }
 

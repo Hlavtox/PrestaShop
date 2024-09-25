@@ -35,16 +35,9 @@ use Symfony\Component\Filesystem\Filesystem;
 final class ImportDirectory
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     /**

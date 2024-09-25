@@ -100,7 +100,6 @@ final class ProductImportHandler extends AbstractImportHandler
      * @param int $currentContextShopId
      * @param bool $isMultistoreEnabled
      * @param int $contextLanguageId
-     * @param TranslatorInterface $translator
      * @param LoggerInterface $logger
      * @param int $employeeId
      * @param Database $legacyDatabase
@@ -120,14 +119,14 @@ final class ProductImportHandler extends AbstractImportHandler
         $currentContextShopId,
         $isMultistoreEnabled,
         $contextLanguageId,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         LoggerInterface $logger,
         $employeeId,
         Database $legacyDatabase,
         CacheClearerInterface $cacheClearer,
         Connection $connection,
         $dbPrefix,
-        Configuration $configuration,
+        private Configuration $configuration,
         Address $shopAddress,
         Validate $validate,
         Tools $tools,

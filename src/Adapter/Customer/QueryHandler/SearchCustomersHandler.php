@@ -42,11 +42,6 @@ use PrestaShop\PrestaShop\Core\Domain\Customer\QueryHandler\SearchCustomersHandl
 final class SearchCustomersHandler implements SearchCustomersHandlerInterface
 {
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var int
      */
     private $contextLangId;
@@ -56,10 +51,9 @@ final class SearchCustomersHandler implements SearchCustomersHandlerInterface
      * @param int $contextLangId
      */
     public function __construct(
-        Configuration $configuration,
+        private Configuration $configuration,
         int $contextLangId
     ) {
-        $this->configuration = $configuration;
         $this->contextLangId = $contextLangId;
     }
 

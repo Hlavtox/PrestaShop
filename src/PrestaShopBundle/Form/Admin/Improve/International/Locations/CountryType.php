@@ -45,11 +45,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class CountryType extends AbstractType
 {
     /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
-    /**
      * @var bool
      */
     protected $isMultistoreEnabled;
@@ -63,11 +58,10 @@ class CountryType extends AbstractType
      * ZoneType constructor.
      */
     public function __construct(
-        TranslatorInterface $translator,
+        protected TranslatorInterface $translator,
         bool $isMultistoreEnabled,
         ConfigurableFormChoiceProviderInterface $zoneChoiceProvider
     ) {
-        $this->translator = $translator;
         $this->isMultistoreEnabled = $isMultistoreEnabled;
         $this->zoneChoiceProvider = $zoneChoiceProvider;
     }

@@ -50,13 +50,12 @@ class DimensionsType extends TranslatorAwareType
     private $weightUnit;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param string $dimensionUnit
      * @param string $weightUnit
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         string $dimensionUnit,
         string $weightUnit

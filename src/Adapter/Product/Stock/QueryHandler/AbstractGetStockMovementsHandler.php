@@ -46,19 +46,13 @@ abstract class AbstractGetStockMovementsHandler
      */
     protected $stockMovementRepository;
 
-    /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
     public function __construct(
         StockAvailableRepository $stockAvailableRepository,
         StockMovementRepository $stockMovementRepository,
-        TranslatorInterface $translator
+        protected TranslatorInterface $translator
     ) {
         $this->stockAvailableRepository = $stockAvailableRepository;
         $this->stockMovementRepository = $stockMovementRepository;
-        $this->translator = $translator;
     }
 
     /**

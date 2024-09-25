@@ -51,7 +51,7 @@ final class TaxOptionsConfiguration extends AbstractMultistoreConfiguration
      * @param FeatureInterface $multistoreFeature
      * @param ProductEcotaxResetterInterface $productEcotaxResetter
      */
-    public function __construct(Configuration $configuration, Context $shopContext, FeatureInterface $multistoreFeature, ProductEcotaxResetterInterface $productEcotaxResetter)
+    public function __construct(private Configuration $configuration, Context $shopContext, FeatureInterface $multistoreFeature, ProductEcotaxResetterInterface $productEcotaxResetter)
     {
         parent::__construct($configuration, $shopContext, $multistoreFeature);
 

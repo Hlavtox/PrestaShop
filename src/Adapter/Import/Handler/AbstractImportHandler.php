@@ -69,11 +69,6 @@ abstract class AbstractImportHandler implements ImportHandlerInterface
     protected $currentContextShopId;
 
     /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
-    /**
      * @var array all shops ids
      */
     protected $allShopIds;
@@ -92,11 +87,6 @@ abstract class AbstractImportHandler implements ImportHandlerInterface
      * @var int
      */
     protected $languageId;
-
-    /**
-     * @var Configuration
-     */
-    protected $configuration;
 
     /**
      * @var Validate
@@ -187,7 +177,6 @@ abstract class AbstractImportHandler implements ImportHandlerInterface
      * @param int $currentContextShopId
      * @param bool $isMultistoreEnabled
      * @param int $contextLanguageId
-     * @param TranslatorInterface $translator
      * @param LoggerInterface $logger
      * @param int $employeeId
      * @param Database $legacyDatabase
@@ -202,26 +191,24 @@ abstract class AbstractImportHandler implements ImportHandlerInterface
         $currentContextShopId,
         $isMultistoreEnabled,
         $contextLanguageId,
-        TranslatorInterface $translator,
+        protected TranslatorInterface $translator,
         LoggerInterface $logger,
         $employeeId,
         Database $legacyDatabase,
         CacheClearerInterface $cacheClearer,
-        Configuration $configuration,
+        protected Configuration $configuration,
         Validate $validate
     ) {
         $this->dataFormatter = $dataFormatter;
         $this->contextShopIds = $contextShopIds;
         $this->currentContextShopId = $currentContextShopId;
         $this->isMultistoreEnabled = $isMultistoreEnabled;
-        $this->translator = $translator;
         $this->allShopIds = $allShopIds;
         $this->contextLanguageId = $contextLanguageId;
         $this->logger = $logger;
         $this->employeeId = $employeeId;
         $this->legacyDatabase = $legacyDatabase;
         $this->cacheClearer = $cacheClearer;
-        $this->configuration = $configuration;
         $this->validate = $validate;
         $this->propertyAccessor = PropertyAccess::createPropertyAccessor();
         $this->defaultLanguageId = $this->configuration->getInt('PS_LANG_DEFAULT');

@@ -74,7 +74,6 @@ class TranslatableType extends TranslatorAwareType
     private $defaultShopLanguageId;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $availableLocales
      * @param UrlGeneratorInterface $urlGenerator
@@ -83,7 +82,7 @@ class TranslatableType extends TranslatorAwareType
      * @param int $defaultShopLanguageId
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $availableLocales,
         UrlGeneratorInterface $urlGenerator,

@@ -39,16 +39,9 @@ use PrestaShop\PrestaShop\Core\Multistore\MultistoreConfig;
 class MultistoreFeature implements FeatureInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     /**

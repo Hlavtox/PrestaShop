@@ -67,14 +67,13 @@ class ProductSupplierType extends TranslatorAwareType
     private $formCloner;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param string $defaultCurrencyIsoCode
      * @param CurrencyRepository $currencyRepository
      * @param FormCloner $formCloner
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         string $defaultCurrencyIsoCode,
         CurrencyRepository $currencyRepository,

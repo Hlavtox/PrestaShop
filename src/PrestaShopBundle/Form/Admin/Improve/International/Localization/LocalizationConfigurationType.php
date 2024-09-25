@@ -55,7 +55,7 @@ class LocalizationConfigurationType extends TranslatorAwareType
      * @param array $timezoneChoices
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $languageChoices,
         array $timezoneChoices

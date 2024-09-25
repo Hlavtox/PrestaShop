@@ -40,22 +40,15 @@ use PrestaShop\PrestaShop\Core\Group\Provider\DefaultGroupsProviderInterface;
 final class DefaultGroupsProvider implements DefaultGroupsProviderInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var int
      */
     private $contextLangId;
 
     /**
-     * @param ConfigurationInterface $configuration
      * @param int $contextLangId
      */
     public function __construct(ConfigurationInterface $configuration, $contextLangId)
     {
-        $this->configuration = $configuration;
         $this->contextLangId = $contextLangId;
     }
 

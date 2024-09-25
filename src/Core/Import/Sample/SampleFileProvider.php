@@ -36,16 +36,9 @@ use Symfony\Component\HttpFoundation\File\File;
 final class SampleFileProvider implements SampleFileProviderInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     /**

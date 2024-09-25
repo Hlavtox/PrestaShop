@@ -47,13 +47,9 @@ class ZipSourceHandler implements SourceHandlerInterface
     /** @var string */
     protected $modulePath;
 
-    /** @var TranslatorInterface */
-    protected $translator;
-
-    public function __construct(string $modulePath, TranslatorInterface $translator)
+    public function __construct(string $modulePath, private TranslatorInterface $translator)
     {
         $this->modulePath = rtrim($modulePath, '/') . '/';
-        $this->translator = $translator;
     }
 
     public function canHandle($source): bool

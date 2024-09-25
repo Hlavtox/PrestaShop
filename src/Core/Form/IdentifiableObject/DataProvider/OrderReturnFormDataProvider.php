@@ -40,19 +40,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class OrderReturnFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
      * @var RouterInterface
      */
     private $router;
-
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
 
     /**
      * @var string
@@ -60,17 +50,14 @@ class OrderReturnFormDataProvider implements FormDataProviderInterface
     private $dateFormat;
 
     /**
-     * @param CommandBusInterface $queryBus
      */
     public function __construct(
-        CommandBusInterface $queryBus,
+        private CommandBusInterface $queryBus,
         RouterInterface $router,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         string $dateFormat
     ) {
-        $this->queryBus = $queryBus;
         $this->router = $router;
-        $this->translator = $translator;
         $this->dateFormat = $dateFormat;
     }
 

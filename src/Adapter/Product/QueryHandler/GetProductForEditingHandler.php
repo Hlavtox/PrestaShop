@@ -141,11 +141,6 @@ class GetProductForEditingHandler implements GetProductForEditingHandlerInterfac
     private $specificPriceRepository;
 
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var CategoryDisplayNameBuilder
      */
     private $categoryDisplayNameBuilder;
@@ -179,7 +174,7 @@ class GetProductForEditingHandler implements GetProductForEditingHandlerInterfac
         RedirectTargetProvider $targetProvider,
         ProductImagePathFactory $productImageUrlFactory,
         SpecificPriceRepository $specificPriceRepository,
-        Configuration $configuration,
+        private Configuration $configuration,
         CategoryDisplayNameBuilder $categoryDisplayNameBuilder
     ) {
         $this->numberExtractor = $numberExtractor;
@@ -194,7 +189,6 @@ class GetProductForEditingHandler implements GetProductForEditingHandlerInterfac
         $this->productImageRepository = $productImageRepository;
         $this->productImageUrlFactory = $productImageUrlFactory;
         $this->specificPriceRepository = $specificPriceRepository;
-        $this->configuration = $configuration;
         $this->categoryDisplayNameBuilder = $categoryDisplayNameBuilder;
     }
 

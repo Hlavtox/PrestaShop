@@ -39,11 +39,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class DisabledCategoriesKpi implements KpiInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var ConfigurationInterface
      */
     private $kpiConfiguration;
@@ -54,16 +49,14 @@ final class DisabledCategoriesKpi implements KpiInterface
     private $sourceUrl;
 
     /**
-     * @param TranslatorInterface $translator
      * @param ConfigurationInterface $kpiConfiguration
      * @param string $sourceUrl
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         ConfigurationInterface $kpiConfiguration,
         $sourceUrl
     ) {
-        $this->translator = $translator;
         $this->kpiConfiguration = $kpiConfiguration;
         $this->sourceUrl = $sourceUrl;
     }

@@ -39,11 +39,6 @@ use Symfony\Component\Filesystem\Filesystem;
 class CombineCompressCacheConfiguration implements DataConfigurationInterface
 {
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var Filesystem
      */
     private $filesystem;
@@ -64,13 +59,12 @@ class CombineCompressCacheConfiguration implements DataConfigurationInterface
     private $themeName;
 
     public function __construct(
-        Configuration $configuration,
+        private Configuration $configuration,
         Filesystem $filesystem,
         Tools $tools,
         $themePath,
         $themeName
     ) {
-        $this->configuration = $configuration;
         $this->filesystem = $filesystem;
         $this->tools = $tools;
         $this->themePath = $themePath;

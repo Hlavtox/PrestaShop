@@ -75,14 +75,13 @@ class CustomerAddressType extends TranslatorAwareType
      * Backwards compatibility break introduced in 1.7.8.0 due to addition of Router as mandatory constructor argument
      * as well as extension of TranslationAwareType instead of using translator as dependency.
      *
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param ConfigurableFormChoiceProviderInterface $stateChoiceProvider
      * @param int $contextCountryId
      * @param RouterInterface $router
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         ConfigurableFormChoiceProviderInterface $stateChoiceProvider,
         $contextCountryId,

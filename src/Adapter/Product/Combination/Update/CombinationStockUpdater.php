@@ -69,11 +69,6 @@ class CombinationStockUpdater
     private $stockManager;
 
     /**
-     * @var ShopConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var HookDispatcherInterface
      */
     private $hookDispatcher;
@@ -89,7 +84,6 @@ class CombinationStockUpdater
         $this->stockAvailableRepository = $stockAvailableRepository;
         $this->combinationRepository = $combinationRepository;
         $this->stockManager = $stockManager;
-        $this->configuration = $configuration;
         $this->movementReasonRepository = $movementReasonRepository;
         $this->hookDispatcher = $hookDispatcher;
     }

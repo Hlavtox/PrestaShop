@@ -39,13 +39,12 @@ use Symfony\Component\Validator\Constraints\Type;
 class SizeWeightSettings extends TranslatorAwareType
 {
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param string $dimensionUnit
      * @param string $weightUnit
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         private string $dimensionUnit,
         private string $weightUnit,

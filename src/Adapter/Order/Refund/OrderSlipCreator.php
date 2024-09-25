@@ -53,25 +53,11 @@ use Tools;
 class OrderSlipCreator
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
-     * @param ConfigurationInterface $configuration
-     * @param TranslatorInterface $translator
      */
     public function __construct(
-        ConfigurationInterface $configuration,
-        TranslatorInterface $translator
+        private ConfigurationInterface $configuration,
+        private TranslatorInterface $translator
     ) {
-        $this->configuration = $configuration;
-        $this->translator = $translator;
     }
 
     /**

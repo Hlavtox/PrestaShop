@@ -45,11 +45,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 final class UploadLogosHandler implements UploadLogosHandlerInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var LogoUploader
      */
     private $logoUploader;
@@ -60,16 +55,14 @@ final class UploadLogosHandler implements UploadLogosHandlerInterface
     private $hookDispatcher;
 
     /**
-     * @param ConfigurationInterface $configuration
      * @param LogoUploader $logoUploader
      * @param HookDispatcherInterface $hookDispatcher
      */
     public function __construct(
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         LogoUploader $logoUploader,
         HookDispatcherInterface $hookDispatcher
     ) {
-        $this->configuration = $configuration;
         $this->logoUploader = $logoUploader;
         $this->hookDispatcher = $hookDispatcher;
     }

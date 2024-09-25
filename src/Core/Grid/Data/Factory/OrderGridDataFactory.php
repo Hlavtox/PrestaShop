@@ -53,26 +53,19 @@ final class OrderGridDataFactory implements GridDataFactoryInterface
     private $contextLocale;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @param GridDataFactoryInterface $dataFactory
      * @param RepositoryInterface $localeRepository
-     * @param ConfigurationInterface $configuration
      * @param string $contextLocale
      */
     public function __construct(
         GridDataFactoryInterface $dataFactory,
         RepositoryInterface $localeRepository,
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         $contextLocale
     ) {
         $this->dataFactory = $dataFactory;
         $this->localeRepository = $localeRepository;
         $this->contextLocale = $contextLocale;
-        $this->configuration = $configuration;
     }
 
     /**

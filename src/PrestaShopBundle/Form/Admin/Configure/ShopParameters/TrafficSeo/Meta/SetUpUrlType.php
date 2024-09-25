@@ -63,14 +63,13 @@ class SetUpUrlType extends TranslatorAwareType
     /**
      * SetUpUrlType constructor.
      *
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $canonicalUrlChoices
      * @param bool $isHtaccessFileWritable
      * @param bool $doesMainShopUrlExist
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $canonicalUrlChoices,
         $isHtaccessFileWritable,

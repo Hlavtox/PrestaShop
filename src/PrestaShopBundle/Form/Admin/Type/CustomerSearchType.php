@@ -40,7 +40,7 @@ class CustomerSearchType extends EntitySearchInputType
     private $router;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         RouterInterface $router
     ) {
         parent::__construct($translator);

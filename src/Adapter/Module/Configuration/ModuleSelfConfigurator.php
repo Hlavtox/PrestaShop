@@ -72,11 +72,6 @@ class ModuleSelfConfigurator
     protected $moduleRepository;
 
     /**
-     * @var Configuration
-     */
-    protected $configuration;
-
-    /**
      * @var Connection
      */
     protected $connection;
@@ -88,7 +83,7 @@ class ModuleSelfConfigurator
 
     public function __construct(
         ModuleRepository $moduleRepository,
-        Configuration $configuration,
+        protected Configuration $configuration,
         Connection $connection,
         Filesystem $filesystem
     ) {
@@ -96,7 +91,6 @@ class ModuleSelfConfigurator
         $this->configFile = null;
 
         $this->moduleRepository = $moduleRepository;
-        $this->configuration = $configuration;
         $this->connection = $connection;
         $this->filesystem = $filesystem;
     }

@@ -96,11 +96,6 @@ class ProductGridDataFactoryDecorator implements GridDataFactoryInterface
     private $productImagePathFactory;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var bool
      */
     private $taxEnabled;
@@ -130,7 +125,7 @@ class ProductGridDataFactoryDecorator implements GridDataFactoryInterface
         TaxComputer $taxComputer,
         int $countryId,
         ProductImagePathFactory $productImagePathFactory,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         bool $taxEnabled,
         bool $isEcotaxEnabled,
         int $ecoTaxGroupId,
@@ -147,7 +142,6 @@ class ProductGridDataFactoryDecorator implements GridDataFactoryInterface
         $this->taxComputer = $taxComputer;
         $this->countryId = $countryId;
         $this->productImagePathFactory = $productImagePathFactory;
-        $this->translator = $translator;
         $this->taxEnabled = $taxEnabled;
         $this->isEcotaxEnabled = $isEcotaxEnabled;
         $this->ecoTaxGroupId = $ecoTaxGroupId;

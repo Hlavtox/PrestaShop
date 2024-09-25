@@ -46,27 +46,20 @@ class TitleGridDataFactory implements GridDataFactoryInterface
     private $doctrineTitleDataFactory;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var ImageProviderInterface
      */
     private $titleImageThumbnailProvider;
 
     /**
      * @param GridDataFactoryInterface $doctrineTitleDataFactory
-     * @param TranslatorInterface $translator
      * @param ImageProviderInterface $titleImageThumbnailProvider
      */
     public function __construct(
         GridDataFactoryInterface $doctrineTitleDataFactory,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         ImageProviderInterface $titleImageThumbnailProvider
     ) {
         $this->doctrineTitleDataFactory = $doctrineTitleDataFactory;
-        $this->translator = $translator;
         $this->titleImageThumbnailProvider = $titleImageThumbnailProvider;
     }
 

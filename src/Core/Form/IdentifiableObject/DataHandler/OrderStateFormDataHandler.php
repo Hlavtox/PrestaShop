@@ -38,15 +38,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 final class OrderStateFormDataHandler implements FormDataHandlerInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    private $bus;
-
     public function __construct(
-        CommandBusInterface $bus
+        private CommandBusInterface $bus
     ) {
-        $this->bus = $bus;
     }
 
     /**

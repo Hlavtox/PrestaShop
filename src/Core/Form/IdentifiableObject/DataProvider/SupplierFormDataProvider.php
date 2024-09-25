@@ -38,11 +38,6 @@ use PrestaShop\PrestaShop\Core\Domain\Supplier\QueryResult\EditableSupplier;
 final class SupplierFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
      * @var bool
      */
     private $multistoreEnabled;
@@ -58,18 +53,16 @@ final class SupplierFormDataProvider implements FormDataProviderInterface
     private $contextCountryId;
 
     /**
-     * @param CommandBusInterface $queryBus
      * @param bool $multistoreEnabled
      * @param int[] $defaultShopAssociation
      * @param int $contextCountryId
      */
     public function __construct(
-        CommandBusInterface $queryBus,
+        private CommandBusInterface $queryBus,
         $multistoreEnabled,
         array $defaultShopAssociation,
         $contextCountryId
     ) {
-        $this->queryBus = $queryBus;
         $this->multistoreEnabled = $multistoreEnabled;
         $this->defaultShopAssociation = $defaultShopAssociation;
         $this->contextCountryId = $contextCountryId;

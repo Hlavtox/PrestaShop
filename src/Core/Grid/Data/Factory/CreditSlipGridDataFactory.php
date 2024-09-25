@@ -42,20 +42,13 @@ final class CreditSlipGridDataFactory implements GridDataFactoryInterface
     private $creditSlipDataFactory;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @param GridDataFactoryInterface $creditSlipDataFactory
-     * @param TranslatorInterface $translator
      */
     public function __construct(
         GridDataFactoryInterface $creditSlipDataFactory,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->creditSlipDataFactory = $creditSlipDataFactory;
-        $this->translator = $translator;
     }
 
     /**

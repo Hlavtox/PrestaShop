@@ -48,13 +48,12 @@ class ProductSpecificPricePriorityType extends TranslatorAwareType
     private $specificPriceRepository;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param RouterInterface $router
      * @param SpecificPriceRepository $specificPriceRepository
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         RouterInterface $router,
         SpecificPriceRepository $specificPriceRepository

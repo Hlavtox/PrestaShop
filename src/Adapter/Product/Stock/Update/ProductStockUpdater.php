@@ -75,11 +75,6 @@ class ProductStockUpdater
     private $movementReasonRepository;
 
     /**
-     * @var ShopConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var HookManager
      */
     private $hookManager;
@@ -96,7 +91,6 @@ class ProductStockUpdater
         $this->productRepository = $productRepository;
         $this->stockAvailableRepository = $stockAvailableRepository;
         $this->movementReasonRepository = $movementReasonRepository;
-        $this->configuration = $configuration;
         $this->hookManager = $hookManager;
     }
 

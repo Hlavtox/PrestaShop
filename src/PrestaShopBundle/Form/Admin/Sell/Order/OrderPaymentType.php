@@ -42,11 +42,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class OrderPaymentType extends AbstractType
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var ConfigurableFormChoiceProviderInterface
      */
     private $currencySymbolByIdChoiceProvider;
@@ -79,14 +74,13 @@ class OrderPaymentType extends AbstractType
      * @param int $contextShopId
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         ConfigurableFormChoiceProviderInterface $currencySymbolByIdChoiceProvider,
         ConfigurableFormChoiceProviderInterface $orderInvoiceChoiceProvider,
         FormChoiceProviderInterface $installedPaymentModulesChoiceProvider,
         int $contextLanguageId,
         int $contextShopId
     ) {
-        $this->translator = $translator;
         $this->currencySymbolByIdChoiceProvider = $currencySymbolByIdChoiceProvider;
         $this->orderInvoiceChoiceProvider = $orderInvoiceChoiceProvider;
         $this->contextLanguageId = $contextLanguageId;

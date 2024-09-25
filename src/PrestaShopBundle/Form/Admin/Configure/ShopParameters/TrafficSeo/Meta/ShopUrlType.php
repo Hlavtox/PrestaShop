@@ -51,13 +51,12 @@ class ShopUrlType extends TranslatorAwareType
     /**
      * ShopUrlType constructor.
      *
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param bool $isShopFeatureActive
      * @param bool $doesMainShopUrlExist
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         bool $isShopFeatureActive,
         bool $doesMainShopUrlExist

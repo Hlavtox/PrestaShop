@@ -39,24 +39,17 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 final class ProfileFormDataHandler implements FormDataHandlerInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $bus;
-
-    /**
      * @var ImageUploaderInterface
      */
     private $imageUploader;
 
     /**
-     * @param CommandBusInterface $bus
      * @param ImageUploaderInterface $imageUploader
      */
     public function __construct(
-        CommandBusInterface $bus,
+        private CommandBusInterface $bus,
         ImageUploaderInterface $imageUploader
     ) {
-        $this->bus = $bus;
         $this->imageUploader = $imageUploader;
     }
 

@@ -53,7 +53,7 @@ class CombinationManagerType extends TranslatorAwareType
     private $multiStoreFeature;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         FeatureInterface $multiStoreFeature
     ) {

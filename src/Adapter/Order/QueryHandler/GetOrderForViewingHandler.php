@@ -107,11 +107,6 @@ final class GetOrderForViewingHandler extends AbstractOrderHandler implements Ge
     private $locale;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var int
      */
     private $contextLanguageId;
@@ -120,11 +115,6 @@ final class GetOrderForViewingHandler extends AbstractOrderHandler implements Ge
      * @var CustomerDataProvider
      */
     private $customerDataProvider;
-
-    /**
-     * @var Configuration
-     */
-    private $configuration;
 
     /**
      * @var Context
@@ -142,7 +132,6 @@ final class GetOrderForViewingHandler extends AbstractOrderHandler implements Ge
     private $addressFormatter;
 
     /**
-     * @param TranslatorInterface $translator
      * @param int $contextLanguageId
      * @param Locale $locale
      * @param Context $context
@@ -150,23 +139,20 @@ final class GetOrderForViewingHandler extends AbstractOrderHandler implements Ge
      * @param GetOrderProductsForViewingHandlerInterface $getOrderProductsForViewingHandler
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         int $contextLanguageId,
         Locale $locale,
         Context $context,
         CustomerDataProvider $customerDataProvider,
         GetOrderProductsForViewingHandlerInterface $getOrderProductsForViewingHandler,
-        Configuration $configuration,
+        private Configuration $configuration,
         ?AddressFormatterInterface $addressFormatter = null
     ) {
-        $this->translator = $translator;
         $this->contextLanguageId = $contextLanguageId;
         $this->locale = $locale;
-        $this->translator = $translator;
         $this->context = $context;
         $this->customerDataProvider = $customerDataProvider;
         $this->getOrderProductsForViewingHandler = $getOrderProductsForViewingHandler;
-        $this->configuration = $configuration;
         $this->addressFormatter = $addressFormatter ?? new AddressFormatter();
     }
 

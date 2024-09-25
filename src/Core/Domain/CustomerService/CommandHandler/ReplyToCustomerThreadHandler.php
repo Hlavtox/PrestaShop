@@ -54,11 +54,6 @@ class ReplyToCustomerThreadHandler implements ReplyToCustomerThreadHandlerInterf
     private $context;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @param Context $context
      */
     public function __construct(Context $context)

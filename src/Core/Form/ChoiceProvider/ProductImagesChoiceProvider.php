@@ -37,11 +37,6 @@ use PrestaShop\PrestaShop\Core\Form\ConfigurableFormChoiceProviderInterface;
 final class ProductImagesChoiceProvider implements ConfigurableFormChoiceProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
      * @var int
      */
     private $defaultShopId;
@@ -51,15 +46,11 @@ final class ProductImagesChoiceProvider implements ConfigurableFormChoiceProvide
      */
     private $contextShopId;
 
-    /**
-     * @param CommandBusInterface $queryBus
-     */
     public function __construct(
-        CommandBusInterface $queryBus,
+        private CommandBusInterface $queryBus,
         int $defaultShopId,
         ?int $contextShopId
     ) {
-        $this->queryBus = $queryBus;
         $this->defaultShopId = $defaultShopId;
         $this->contextShopId = $contextShopId;
     }

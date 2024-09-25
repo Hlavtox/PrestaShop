@@ -69,17 +69,12 @@ class ProductPresenter
      */
     protected $productColorsRetriever;
 
-    /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
     public function __construct(
         ImageRetriever $imageRetriever,
         Link $link,
         PriceFormatter $priceFormatter,
         ProductColorsRetriever $productColorsRetriever,
-        TranslatorInterface $translator,
+        protected TranslatorInterface $translator,
         ?HookManager $hookManager = null,
         ?Configuration $configuration = null
     ) {
@@ -87,7 +82,6 @@ class ProductPresenter
         $this->link = $link;
         $this->priceFormatter = $priceFormatter;
         $this->productColorsRetriever = $productColorsRetriever;
-        $this->translator = $translator;
         $this->hookManager = $hookManager ?? new HookManager();
         $this->configuration = $configuration ?? new Configuration();
     }

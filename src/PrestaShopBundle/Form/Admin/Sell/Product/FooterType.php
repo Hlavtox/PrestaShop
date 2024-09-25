@@ -68,7 +68,6 @@ class FooterType extends TranslatorAwareType
     private $contextShopId;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param ProductProvider $productUrlProvider
      * @param ProductPreviewProvider $productPreviewUrlProvider
@@ -77,7 +76,7 @@ class FooterType extends TranslatorAwareType
      * @param int|null $contextShopId
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         ProductProvider $productUrlProvider,
         ProductPreviewProvider $productPreviewUrlProvider,

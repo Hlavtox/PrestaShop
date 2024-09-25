@@ -48,9 +48,9 @@ class LegacyHeadTag extends HeadTag
     use LegacyControllerTrait;
 
     public function __construct(
-        Configuration $configuration,
+        private Configuration $configuration,
         MenuBuilder $menuBuilder,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         HookDispatcherInterface $hookDispatcher,
         TemplateVariables $templateVariables,
         CountryContext $countryContext,

@@ -37,22 +37,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class GeneralFormDataProvider implements FormDataProviderInterface
 {
-    /**
-     * @var GeneralConfiguration
-     */
-    private $configuration;
-
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
     public function __construct(
-        GeneralConfiguration $configuration,
-        TranslatorInterface $translator
+        private GeneralConfiguration $configuration,
+        private TranslatorInterface $translator
     ) {
-        $this->configuration = $configuration;
-        $this->translator = $translator;
     }
 
     /**

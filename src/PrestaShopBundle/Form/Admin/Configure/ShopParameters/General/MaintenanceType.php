@@ -51,12 +51,11 @@ class MaintenanceType extends TranslatorAwareType
     /**
      * MaintenanceType constructor.
      *
-     * @param TranslatorInterface $translator
      * @param array<int, string> $locales
      * @param string $currentIp
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         string $currentIp
     ) {

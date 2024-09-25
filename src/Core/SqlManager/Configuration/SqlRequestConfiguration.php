@@ -48,20 +48,13 @@ final class SqlRequestConfiguration implements DataConfigurationInterface
     private $commandBus;
 
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
      * @param CommandBusInterface $commandBus
-     * @param CommandBusInterface $queryBus
      */
     public function __construct(
         CommandBusInterface $commandBus,
-        CommandBusInterface $queryBus
+        private CommandBusInterface $queryBus
     ) {
         $this->commandBus = $commandBus;
-        $this->queryBus = $queryBus;
     }
 
     /**

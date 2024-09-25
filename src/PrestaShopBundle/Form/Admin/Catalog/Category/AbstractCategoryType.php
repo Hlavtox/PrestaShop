@@ -67,36 +67,28 @@ abstract class AbstractCategoryType extends TranslatorAwareType
     private $multiStoreFeature;
 
     /**
-     * @var ConfigurationInterface
-     */
-    protected $configuration;
-
-    /**
      * @var UrlGeneratorInterface
      */
     private $router;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $customerGroupChoices
      * @param FeatureInterface $multiStoreFeature
-     * @param ConfigurationInterface $configuration
      * @param UrlGeneratorInterface $router
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $customerGroupChoices,
         FeatureInterface $multiStoreFeature,
-        ConfigurationInterface $configuration,
+        protected ConfigurationInterface $configuration,
         UrlGeneratorInterface $router
     ) {
         parent::__construct($translator, $locales);
 
         $this->customerGroupChoices = $customerGroupChoices;
         $this->multiStoreFeature = $multiStoreFeature;
-        $this->configuration = $configuration;
         $this->router = $router;
     }
 

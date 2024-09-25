@@ -37,24 +37,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ProductTypeChoiceProvider implements FormChoiceProviderInterface, FormChoiceAttributeProviderInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var FeatureInterface
      */
     private $combinationFeature;
 
     /**
-     * @param TranslatorInterface $translator
      * @param FeatureInterface $combinationFeature
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         FeatureInterface $combinationFeature
     ) {
-        $this->translator = $translator;
         $this->combinationFeature = $combinationFeature;
     }
 

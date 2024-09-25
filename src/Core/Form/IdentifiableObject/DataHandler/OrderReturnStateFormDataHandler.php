@@ -37,15 +37,9 @@ use PrestaShop\PrestaShop\Core\Domain\OrderReturnState\ValueObject\OrderReturnSt
  */
 final class OrderReturnStateFormDataHandler implements FormDataHandlerInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    private $bus;
-
     public function __construct(
-        CommandBusInterface $bus
+        private CommandBusInterface $bus
     ) {
-        $this->bus = $bus;
     }
 
     /**

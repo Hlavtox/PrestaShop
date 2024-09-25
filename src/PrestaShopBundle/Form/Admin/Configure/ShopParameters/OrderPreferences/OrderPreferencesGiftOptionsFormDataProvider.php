@@ -42,17 +42,11 @@ class OrderPreferencesGiftOptionsFormDataProvider implements FormDataProviderInt
      */
     private $giftOptionsConfiguration;
 
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
     public function __construct(
         GiftOptionsConfiguration $giftOptionsConfiguration,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->giftOptionsConfiguration = $giftOptionsConfiguration;
-        $this->translator = $translator;
     }
 
     /**

@@ -49,11 +49,6 @@ final class ImportEntityDeleter implements ImportEntityDeleterInterface
     private $dbPrefix;
 
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var ImageFileDeleterInterface
      */
     private $imageFileDeleter;
@@ -67,12 +62,11 @@ final class ImportEntityDeleter implements ImportEntityDeleterInterface
     public function __construct(
         Connection $connection,
         $dbPrefix,
-        Configuration $configuration,
+        private Configuration $configuration,
         ImageFileDeleterInterface $imageFileDeleter
     ) {
         $this->connection = $connection;
         $this->dbPrefix = $dbPrefix;
-        $this->configuration = $configuration;
         $this->imageFileDeleter = $imageFileDeleter;
     }
 

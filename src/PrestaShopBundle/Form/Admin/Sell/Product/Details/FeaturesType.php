@@ -52,7 +52,7 @@ class FeaturesType extends TranslatorAwareType
     private $urlGenerator;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         FeaturesChoiceProvider $featuresChoiceProvider,
         UrlGeneratorInterface $urlGenerator

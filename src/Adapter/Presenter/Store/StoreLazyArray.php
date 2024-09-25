@@ -52,21 +52,15 @@ class StoreLazyArray extends AbstractLazyArray
      */
     private $language;
 
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
     public function __construct(
         array $store,
         Language $language,
         ImageRetriever $imageRetriever,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
     ) {
         $this->store = $store;
         $this->language = $language;
         $this->imageRetriever = $imageRetriever;
-        $this->translator = $translator;
 
         parent::__construct();
         $this->appendArray($this->store);

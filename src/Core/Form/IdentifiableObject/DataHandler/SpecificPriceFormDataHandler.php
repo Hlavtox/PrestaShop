@@ -37,18 +37,9 @@ use PrestaShop\PrestaShop\Core\Util\DateTime\DateTime;
 
 class SpecificPriceFormDataHandler implements FormDataHandlerInterface
 {
-    /**
-     * @var CommandBusInterface
-     */
-    private $commandBus;
-
-    /**
-     * @param CommandBusInterface $commandBus
-     */
     public function __construct(
-        CommandBusInterface $commandBus
+        private CommandBusInterface $commandBus
     ) {
-        $this->commandBus = $commandBus;
     }
 
     public function create(array $data): int

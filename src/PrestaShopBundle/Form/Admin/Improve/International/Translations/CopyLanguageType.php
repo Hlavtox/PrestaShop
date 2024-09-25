@@ -44,12 +44,11 @@ class CopyLanguageType extends TranslatorAwareType
     private $themeChoices;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $themeChoices
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $themeChoices
     ) {

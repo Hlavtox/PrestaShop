@@ -43,14 +43,8 @@ class ImageFormatConfiguration implements ImageFormatConfigurationInterface
 
     private $formatsToGenerate = [];
 
-    /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
     public function __construct(ConfigurationInterface $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     public function getGenerationFormats(): array

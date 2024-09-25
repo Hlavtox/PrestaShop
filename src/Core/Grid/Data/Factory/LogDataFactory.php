@@ -52,11 +52,6 @@ final class LogDataFactory implements GridDataFactoryInterface
     private $dataFactory;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var string
      */
     private const DEFAULT_EMPTY_DATA = '---';
@@ -68,16 +63,14 @@ final class LogDataFactory implements GridDataFactoryInterface
 
     /**
      * @param GridDataFactoryInterface $dataFactory
-     * @param TranslatorInterface $translator
      * @param AvatarProviderInterface $avatarProvider
      */
     public function __construct(
         GridDataFactoryInterface $dataFactory,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         AvatarProviderInterface $avatarProvider
     ) {
         $this->dataFactory = $dataFactory;
-        $this->translator = $translator;
         $this->avatarProvider = $avatarProvider;
     }
 

@@ -43,12 +43,11 @@ class AddUpdateLanguageType extends TranslatorAwareType
     private $nonInstalledLocalizationChoices;
 
     /**
-     * @param TranslatorInterface $translator
      * @param array $locales
      * @param array $nonInstalledLocalizationChoices
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         array $locales,
         array $nonInstalledLocalizationChoices
     ) {

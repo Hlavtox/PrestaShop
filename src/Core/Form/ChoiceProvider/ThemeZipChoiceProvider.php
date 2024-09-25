@@ -37,16 +37,9 @@ use Symfony\Component\Finder\SplFileInfo;
 final class ThemeZipChoiceProvider implements FormChoiceProviderInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @param ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     /**

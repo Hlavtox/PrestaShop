@@ -48,14 +48,12 @@ final class ManufacturerFormDataHandler implements FormDataHandlerInterface
     private $imageUploader;
 
     /**
-     * @param CommandBusInterface $bus
      * @param ManufacturerImageUploader $imageUploader
      */
     public function __construct(
-        CommandBusInterface $bus,
+        private CommandBusInterface $bus,
         ManufacturerImageUploader $imageUploader
     ) {
-        $this->bus = $bus;
         $this->imageUploader = $imageUploader;
     }
 

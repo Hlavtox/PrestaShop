@@ -89,11 +89,6 @@ final class AddProductToOrderHandler extends AbstractOrderHandler implements Add
     private $orderAmountUpdater;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var int
      */
     private $computingPrecision;
@@ -109,21 +104,19 @@ final class AddProductToOrderHandler extends AbstractOrderHandler implements Add
     private $orderDetailUpdater;
 
     /**
-     * @param TranslatorInterface $translator
      * @param ContextStateManager $contextStateManager
      * @param OrderAmountUpdater $orderAmountUpdater
      * @param OrderProductQuantityUpdater $orderProductQuantityUpdater
      * @param OrderDetailUpdater $orderDetailUpdater
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         ContextStateManager $contextStateManager,
         OrderAmountUpdater $orderAmountUpdater,
         OrderProductQuantityUpdater $orderProductQuantityUpdater,
         OrderDetailUpdater $orderDetailUpdater
     ) {
         $this->context = Context::getContext();
-        $this->translator = $translator;
         $this->contextStateManager = $contextStateManager;
         $this->orderAmountUpdater = $orderAmountUpdater;
         $this->orderProductQuantityUpdater = $orderProductQuantityUpdater;

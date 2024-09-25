@@ -63,11 +63,6 @@ class MultistoreCheckboxEnabler
     private $multiStoreFeature;
 
     /**
-     * @var ShopConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var Context
      */
     private $multiStoreContext;
@@ -99,7 +94,6 @@ class MultistoreCheckboxEnabler
         FormCloner $formCloner
     ) {
         $this->multiStoreFeature = $multiStoreFeature;
-        $this->configuration = $configuration;
         $this->multiStoreContext = $multiStoreContext;
         $this->multistoreController = $multistoreController;
         $this->formCloner = $formCloner;

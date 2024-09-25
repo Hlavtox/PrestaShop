@@ -36,22 +36,15 @@ use PrestaShop\PrestaShop\Core\Form\FormChoiceProviderInterface;
 final class GroupByIdChoiceProvider implements FormChoiceProviderInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var int
      */
     private $contextLangId;
 
     /**
-     * @param ConfigurationInterface $configuration
      * @param int $contextLangId
      */
     public function __construct(ConfigurationInterface $configuration, int $contextLangId)
     {
-        $this->configuration = $configuration;
         $this->contextLangId = $contextLangId;
     }
 

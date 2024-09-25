@@ -89,11 +89,6 @@ class GetPackedProductsHandler implements GetPackedProductsHandlerInterface
     protected $productImageRepository;
 
     /**
-     * @var TranslatorInterface
-     */
-    protected $translator;
-
-    /**
      * @var ProductImageProviderInterface
      */
     private $productImageProvider;
@@ -106,7 +101,7 @@ class GetPackedProductsHandler implements GetPackedProductsHandlerInterface
         AttributeRepository $attributeRepository,
         CombinationNameBuilder $combinationNameBuilder,
         ProductImageRepository $productImageRepository,
-        TranslatorInterface $translator,
+        protected TranslatorInterface $translator,
         ProductImageProviderInterface $productImageProvider
     ) {
         $this->languageId = $defaultLangId;
@@ -115,7 +110,6 @@ class GetPackedProductsHandler implements GetPackedProductsHandlerInterface
         $this->attributeRepository = $attributeRepository;
         $this->combinationNameBuilder = $combinationNameBuilder;
         $this->productImageRepository = $productImageRepository;
-        $this->translator = $translator;
         $this->combinationRepository = $combinationRepository;
         $this->productImageProvider = $productImageProvider;
     }

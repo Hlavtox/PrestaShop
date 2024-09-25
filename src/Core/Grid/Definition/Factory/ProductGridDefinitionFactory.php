@@ -74,11 +74,6 @@ class ProductGridDefinitionFactory extends AbstractGridDefinitionFactory
     public const GRID_ID = 'product';
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @var FeatureInterface
      */
     private $multistoreFeature;
@@ -105,7 +100,7 @@ class ProductGridDefinitionFactory extends AbstractGridDefinitionFactory
 
     public function __construct(
         HookDispatcherInterface $hookDispatcher,
-        ConfigurationInterface $configuration,
+        private ConfigurationInterface $configuration,
         FeatureInterface $multistoreFeature,
         ShopConstraintContextInterface $shopConstraintContext,
         FormFactoryInterface $formFactory,
@@ -113,7 +108,6 @@ class ProductGridDefinitionFactory extends AbstractGridDefinitionFactory
         AccessibilityCheckerInterface $multipleShopsChecker
     ) {
         parent::__construct($hookDispatcher);
-        $this->configuration = $configuration;
         $this->multistoreFeature = $multistoreFeature;
         $this->shopConstraintContext = $shopConstraintContext;
         $this->formFactory = $formFactory;

@@ -69,11 +69,6 @@ final class EmployeeType extends AbstractType
     private $profilesChoices;
 
     /**
-     * @var bool
-     */
-    private $isMultistoreFeatureActive;
-
-    /**
      * @var int
      */
     private $superAdminProfileId;
@@ -84,36 +79,27 @@ final class EmployeeType extends AbstractType
     private $router;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
      * @param array $languagesChoices
      * @param array $profilesChoices
      * @param bool $isMultistoreFeatureActive
-     * @param ConfigurationInterface $configuration
      * @param int $superAdminProfileId
      * @param Router $router
      */
     public function __construct(
         array $languagesChoices,
         array $profilesChoices,
-        bool $isMultistoreFeatureActive,
-        ConfigurationInterface $configuration,
+        private bool $isMultistoreFeatureActive,
+        private ConfigurationInterface $configuration,
         int $superAdminProfileId,
         Router $router,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         private readonly TabDataProvider $tabDataProvider,
         private readonly LanguageContext $languageContext,
     ) {
         $this->languagesChoices = $languagesChoices;
         $this->profilesChoices = $profilesChoices;
-        $this->isMultistoreFeatureActive = $isMultistoreFeatureActive;
-        $this->configuration = $configuration;
         $this->superAdminProfileId = $superAdminProfileId;
         $this->router = $router;
-        $this->translator = $translator;
     }
 
     /**

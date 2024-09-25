@@ -38,24 +38,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class LogsConfiguration implements DataConfigurationInterface
 {
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var Validate
      */
     private $validate;
 
-    public function __construct(ConfigurationInterface $configuration, TranslatorInterface $translator, Validate $validate)
+    public function __construct(ConfigurationInterface $configuration, private TranslatorInterface $translator, Validate $validate)
     {
-        $this->configuration = $configuration;
-        $this->translator = $translator;
         $this->validate = $validate;
     }
 

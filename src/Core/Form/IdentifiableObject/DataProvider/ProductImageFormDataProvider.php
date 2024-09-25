@@ -39,20 +39,14 @@ use PrestaShop\PrestaShop\Core\Domain\Shop\ValueObject\ShopConstraint;
 class ProductImageFormDataProvider implements FormDataProviderInterface
 {
     /**
-     * @var CommandBusInterface
-     */
-    private $queryBus;
-
-    /**
      * @var int
      */
     private $contextShopId;
 
     public function __construct(
-        CommandBusInterface $queryBus,
+        private CommandBusInterface $queryBus,
         int $contextShopId
     ) {
-        $this->queryBus = $queryBus;
         $this->contextShopId = $contextShopId;
     }
 

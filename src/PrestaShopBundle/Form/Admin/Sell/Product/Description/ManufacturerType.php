@@ -38,24 +38,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ManufacturerType extends AbstractType
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var FormChoiceProviderInterface
      */
     private $manufacturerChoiceProvider;
 
     /**
-     * @param TranslatorInterface $translator
      * @param FormChoiceProviderInterface $manufacturerChoiceProvider
      */
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         FormChoiceProviderInterface $manufacturerChoiceProvider
     ) {
-        $this->translator = $translator;
         $this->manufacturerChoiceProvider = $manufacturerChoiceProvider;
     }
 

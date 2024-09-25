@@ -42,11 +42,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class SupplierProductSearchProvider implements ProductSearchProviderInterface
 {
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @var Supplier
      */
     private $supplier;
@@ -57,10 +52,9 @@ class SupplierProductSearchProvider implements ProductSearchProviderInterface
     private $sortOrdersCollection;
 
     public function __construct(
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         Supplier $supplier
     ) {
-        $this->translator = $translator;
         $this->supplier = $supplier;
         $this->sortOrdersCollection = new SortOrdersCollection($this->translator);
     }

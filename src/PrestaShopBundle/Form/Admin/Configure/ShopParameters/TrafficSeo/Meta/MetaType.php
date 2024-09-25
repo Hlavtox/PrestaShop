@@ -71,11 +71,10 @@ class MetaType extends AbstractType
     public function __construct(
         array $defaultPageChoices,
         array $modulePageChoices,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->defaultPageChoices = $defaultPageChoices;
         $this->modulePageChoices = $modulePageChoices;
-        $this->translator = $translator;
     }
 
     /**

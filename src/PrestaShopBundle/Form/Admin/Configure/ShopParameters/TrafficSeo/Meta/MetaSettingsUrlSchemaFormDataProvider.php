@@ -50,25 +50,18 @@ final class MetaSettingsUrlSchemaFormDataProvider implements FormDataProviderInt
     private $routeValidator;
 
     /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * MetaFormDataProvider constructor.
      *
      * @param DataConfigurationInterface $urlSchemaDataConfiguration
-     * @param TranslatorInterface $translator
      * @param RouteValidator $routeValidator
      */
     public function __construct(
         DataConfigurationInterface $urlSchemaDataConfiguration,
-        TranslatorInterface $translator,
+        private TranslatorInterface $translator,
         RouteValidator $routeValidator
     ) {
         $this->urlSchemaDataConfiguration = $urlSchemaDataConfiguration;
         $this->routeValidator = $routeValidator;
-        $this->translator = $translator;
     }
 
     /**

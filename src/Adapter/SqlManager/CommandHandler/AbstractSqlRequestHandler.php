@@ -42,17 +42,11 @@ abstract class AbstractSqlRequestHandler
      */
     private $sqlQueryValidator;
 
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
     public function __construct(
         SqlQueryValidator $sqlQueryValidator,
-        TranslatorInterface $translator
+        private TranslatorInterface $translator
     ) {
         $this->sqlQueryValidator = $sqlQueryValidator;
-        $this->translator = $translator;
     }
 
     protected function assertSqlQueryIsValid(string $sql): void

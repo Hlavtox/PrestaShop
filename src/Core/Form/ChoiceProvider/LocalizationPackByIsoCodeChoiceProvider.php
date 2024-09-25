@@ -48,31 +48,17 @@ final class LocalizationPackByIsoCodeChoiceProvider implements FormChoiceProvide
     private $localLocalizationPackLoader;
 
     /**
-     * @var ConfigurationInterface
-     */
-    private $configuration;
-
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    /**
      * @param LocalizationPackLoaderInterface $remoteLocalizationPackLoader
      * @param LocalizationPackLoaderInterface $localLocalizationPackLoader
-     * @param ConfigurationInterface $configuration
-     * @param TranslatorInterface $translator
      */
     public function __construct(
         LocalizationPackLoaderInterface $remoteLocalizationPackLoader,
         LocalizationPackLoaderInterface $localLocalizationPackLoader,
-        ConfigurationInterface $configuration,
-        TranslatorInterface $translator
+        private ConfigurationInterface $configuration,
+        private TranslatorInterface $translator
     ) {
         $this->remoteLocalizationPackLoader = $remoteLocalizationPackLoader;
         $this->localLocalizationPackLoader = $localLocalizationPackLoader;
-        $this->configuration = $configuration;
-        $this->translator = $translator;
     }
 
     /**
