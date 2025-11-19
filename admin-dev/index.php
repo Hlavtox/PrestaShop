@@ -80,12 +80,12 @@ Request::enableHttpMethodParameterOverride();
 $request = Request::createFromGlobals();
 
 /*
- * Initialize legacy dispatcher at the initial stage of the request. If we don't do it now,
+ * Initialize legacy dispatcher request at the initial stage of the request. If we don't do it now,
  * the dispatcher could be created later by legacy classes. But, at that point, the request
  * could already be modified, for examply by move_uploaded_file. That would cause createFromGlobals
  * to crash.
  */
-Dispatcher::getInstance($request);
+Dispatcher::setRequest($request);
 
 Request::setTrustedProxies([], Request::HEADER_X_FORWARDED_FOR | Request::HEADER_X_FORWARDED_HOST | Request::HEADER_X_FORWARDED_PORT | Request::HEADER_X_FORWARDED_PROTO);
 

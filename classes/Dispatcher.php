@@ -44,7 +44,7 @@ class DispatcherCore
     /**
      * @var SymfonyRequest
      */
-    private $request;
+    private static $request;
 
     /**
      * @var array List of default routes
@@ -178,19 +178,34 @@ class DispatcherCore
     protected $front_controller = self::FC_FRONT;
 
     /**
+     * Initializes a request into the dispatcher. This should be done
+     * at the early stages of the application, before anything has a chance
+     * to modify the request.
+     */
+    public static function setRequest(SymfonyRequest $request)
+    {
+        self::$request = $request;
+    }
+
+    /**
      * Get current instance of dispatcher (singleton).
      *
      * @return Dispatcher
      *
      * @throws PrestaShopException
      */
-    public static function getInstance(?SymfonyRequest $request = null)
+    public static function getInstance()
     {
         if (!self::$instance) {
-            if (null === $request) {
-                $request = SymfonyRequest::createFromGlobals();
+            /*
+             * If a request was not set before for some reason, we create it from globals.
+             * However, this could be sometimes dangerous and provide unexpected results,
+             * when a request data was already modified by the application.
+             */
+            if (self::$request == null) {
+                self::$request = SymfonyRequest::createFromGlobals();
             }
-            self::$instance = new Dispatcher($request);
+            self::$instance = new Dispatcher();
         }
 
         return self::$instance;
@@ -199,14 +214,10 @@ class DispatcherCore
     /**
      * Needs to be instantiated from getInstance() method.
      *
-     * @param SymfonyRequest|null $request
-     *
      * @throws PrestaShopException
      */
-    protected function __construct(?SymfonyRequest $request = null)
+    protected function __construct()
     {
-        $this->setRequest($request);
-
         $this->use_routes = (bool) Configuration::get('PS_REWRITING_SETTINGS');
 
         // Select right front controller
@@ -236,27 +247,13 @@ class DispatcherCore
     }
 
     /**
-     * Either sets a given request or a new one.
-     *
-     * @param SymfonyRequest|null $request
-     */
-    private function setRequest(?SymfonyRequest $request = null)
-    {
-        if (null === $request) {
-            $request = SymfonyRequest::createFromGlobals();
-        }
-
-        $this->request = $request;
-    }
-
-    /**
      * Returns the request property.
      *
      * @return SymfonyRequest
      */
     private function getRequest()
     {
-        return $this->request;
+        return self::$request;
     }
 
     /**
