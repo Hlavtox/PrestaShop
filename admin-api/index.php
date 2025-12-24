@@ -40,15 +40,6 @@ if (Configuration::get('PS_UPGRADE_CLEAR_CACHE')) {
     Configuration::updateValue('PS_UPGRADE_CLEAR_CACHE', 0);
 }
 
-// Enable APC for autoloading to improve performance.
-// You should change the ApcClassLoader first argument to a unique prefix
-// in order to prevent cache key conflicts with other applications
-// also using APC.
-/*
-$apcLoader = new ApcClassLoader(sha1(__FILE__), $loader);
-$loader->unregister();
-$apcLoader->register(true);
-*/
 if (_PS_MODE_DEV_) {
     Debug::enable();
 }
@@ -67,8 +58,6 @@ $dotEnvFile = dirname(__FILE__, 2) . '/.env';
 CacheClearLocker::waitUntilUnlocked(_PS_ENV_, _PS_APP_ID_);
 
 $kernel = new AdminAPIKernel(_PS_ENV_, _PS_MODE_DEV_);
-// When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter
-//Request::enableHttpMethodParameterOverride();
 $request = Request::createFromGlobals();
 
 /*
